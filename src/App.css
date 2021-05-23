@@ -7,6 +7,11 @@
   pointer-events: none;
 }
 
+.home {
+  flex-grow: 1;
+  padding: 3px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -35,4 +40,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.MuiFormHelperText-root{
+  color:red !important;
 }

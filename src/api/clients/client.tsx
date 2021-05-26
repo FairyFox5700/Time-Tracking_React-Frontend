@@ -1,8 +1,4 @@
 import axios from "axios";
-import store from "../../store";
-import { refreshToken } from "../../redux/actions/auth/authActions";
-import { RefreshTokenRequest } from "../../types/auth/auth";
-import { Dispatch } from "react";
 import { RemoveAccessToken, RemoveRefreshToken } from "../../utils/jwtUtils";
 import { Redirect } from "react-router-dom";
 

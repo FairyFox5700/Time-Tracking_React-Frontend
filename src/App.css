@@ -1,3 +1,7 @@
+@viewport {
+  zoom: 0.5; /* same as initial-scale=0.5 */
+  width: device-width;
+}
 .App {
   text-align: center;
 }

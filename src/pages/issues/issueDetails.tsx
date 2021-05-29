@@ -21,18 +21,14 @@ import { RootState } from "../../store";
 import { fetchIssuesById } from "../../redux/actions/issuesActions";
 import { fetchAllUsers } from "../../redux/actions/usersActions";
 import { connect } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Alert } from "@material-ui/lab";
 import CircularUnderLoad from "../../components/loader/circularLoader";
-import NotFoundPage from "../statuses/notFoundPage";
 import AlarmAddIcon from "@material-ui/icons/AlarmAdd";
 import TimerOffIcon from "@material-ui/icons/TimerOff";
 import EditIcon from "@material-ui/icons/Edit";
-import AdjustIcon from "@material-ui/icons/Adjust";
 import WorkLogGrid from "../worklog/workLogGrid";
-
 import { toLocalTime } from "../../utils/timeUtils";
-import FormPopupDialog from "../../components/popup/formPopup";
 import PopupDialog from "../../components/popup/popupDialog";
 type IssueDetailsProps = ReturnType<typeof mapStateToProps> &
   ReturnType<typeof mapDispatchToProps> & {
@@ -41,14 +37,14 @@ type IssueDetailsProps = ReturnType<typeof mapStateToProps> &
     fetchIssue: (issueId: string) => void;
     isLoading: boolean;
     errorMessage: string | undefined;
-    issue: IssueDetailedModel | undefined;
+    issue: IssueDetailedModel;
   };
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: "flex",
-      maxWidth: 1200,
+      maxWidth: 1800,
     },
     details: {
       display: "flex",
@@ -102,11 +98,15 @@ const IssueDetailedCard: React.FC<IssueDetailsProps> = ({
   isLoading,
   issue,
 }) => {
-  let { issueId } = useParams<IssueRouteParams>();
+  const location = useLocation();
+  console.log("loc", location.pathname.slice(-36));
+  const issueId = location.pathname.slice(-36);
   console.log("issuedId:", issueId);
+
   useEffect(() => {
     fetchIssue(issueId);
   }, [1]);
+
   const classes = useStyles();
   const setBackground = (issue?: IssueDetailedModel) => {
     switch (issue?.status ?? Status.Open) {
@@ -125,14 +125,12 @@ const IssueDetailedCard: React.FC<IssueDetailsProps> = ({
   if (errorMessage) {
     <Alert severity="error">{errorMessage}</Alert>;
   }
+
   if (isLoading) {
     return <CircularUnderLoad />;
-  }
-  if (!issue) {
-    return <NotFoundPage />;
   } else {
+    console.log("isLoading", isLoading);
     const classNameForBg = `issue_card ${setBackground(issue)}`;
-
     return (
       <PopupDialog title="" openPopup={openPopup} setOpenPopup={setOpenPopup}>
         <Card className={classes.root}>
@@ -246,7 +244,7 @@ const IssueDetailedCard: React.FC<IssueDetailsProps> = ({
 const mapStateToProps = (state: RootState) => ({
   errorMessage: state.issues.error,
   isLoading: state.issues.loading,
-  issue: state.issues.issue?.data[0],
+  issue: state.issues.issue.data,
 });
 const mapDispatchToProps = (dispatch: Dispatch<any>) => {
   return {

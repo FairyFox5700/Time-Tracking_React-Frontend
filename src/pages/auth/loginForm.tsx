@@ -84,7 +84,7 @@ const Login: React.FC<LoginProps> = ({
       if (isUserLoggedIn()) {
         history.push("/home");
       }
-    }, 10000);
+    }, 100);
   }, [isUserLoggedIn()]);
 
   const history = useHistory();

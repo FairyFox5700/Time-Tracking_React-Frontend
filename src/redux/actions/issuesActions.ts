@@ -30,21 +30,20 @@ import { Dispatch } from "react";
 export type ThunkResult<R> = ThunkAction<R, RootState, undefined, RootActions>;
 
 //get all issues
-export const fetchIssues = (request: PagedRequest): ThunkResult<void> => async (
-  dispatch
-) => {
-  handleFetchIssues(dispatch);
-  try {
-    const response: AxiosResponse<
-      ApiPagedResponse<IssueDetailedModel>
-    > = await client.get(
-      `/issue?page=${request.page}&pageSize=${request.pageSize}`
-    );
-    handleFetchIssuesSuccess(dispatch, response.data);
-  } catch (e) {
-    handleFetchIssuesFail(dispatch);
-  }
-};
+export const fetchIssues =
+  (request: PagedRequest): ThunkResult<void> =>
+  async (dispatch) => {
+    handleFetchIssues(dispatch);
+    try {
+      const response: AxiosResponse<ApiPagedResponse<IssueDetailedModel>> =
+        await client.get(
+          `/issue?page=${request.page}&pageSize=${request.pageSize}`
+        );
+      handleFetchIssuesSuccess(dispatch, response.data);
+    } catch (e) {
+      handleFetchIssuesFail(dispatch);
+    }
+  };
 
 export const handleFetchIssues = (
   dispatch: Dispatch<FetchAllIssuesRequestActionType>
@@ -74,19 +73,19 @@ export const handleFetchIssuesFail = (
 
 //fetch issue y id
 
-export const fetchIssuesById = (issueId: string): ThunkResult<void> => async (
-  dispatch
-) => {
-  handleFetchIssueById(dispatch);
-  try {
-    const response: AxiosResponse<ApiResponse<IssueModel>> = await client.get(
-      `/issue?${issueId}`
-    );
-    handleFetchIssueByIdSuccess(dispatch, response.data);
-  } catch (e) {
-    handleFetchIssueByIdFailed(dispatch);
-  }
-};
+export const fetchIssuesById =
+  (issueId: string): ThunkResult<void> =>
+  async (dispatch) => {
+    handleFetchIssueById(dispatch);
+    try {
+      const response: AxiosResponse<ApiResponse<IssueModel>> = await client.get(
+        `/issue/${issueId}`
+      );
+      handleFetchIssueByIdSuccess(dispatch, response.data);
+    } catch (e) {
+      handleFetchIssueByIdFailed(dispatch);
+    }
+  };
 
 export const handleFetchIssueById = (
   dispatch: Dispatch<FetchIssueByIdRequestActionType>
@@ -100,6 +99,7 @@ export const handleFetchIssueByIdSuccess = (
   dispatch: Dispatch<FetchIssueByIdSucessActionType>,
   response: ApiResponse<IssueModel>
 ) => {
+  console.log("Success", response);
   dispatch({
     type: "FETCH_SUCCESS_FETCH_ISSUE_BY_ID",
     payload: response,
@@ -115,19 +115,17 @@ export const handleFetchIssueByIdFailed = (
 };
 
 //create issue
-export const createIssue = (issue: IssueModel): ThunkResult<void> => async (
-  dispatch
-) => {
-  try {
-    const response: AxiosResponse<ApiResponse<IssueModel>> = await client.post(
-      "/issue/create-issue",
-      issue
-    );
-    handleCreateIssue(dispatch, response.data);
-  } catch (e) {
-    handleCreateIssueFailed(dispatch);
-  }
-};
+export const createIssue =
+  (issue: IssueModel): ThunkResult<void> =>
+  async (dispatch) => {
+    try {
+      const response: AxiosResponse<ApiResponse<IssueModel>> =
+        await client.post("/issue/create-issue", issue);
+      handleCreateIssue(dispatch, response.data);
+    } catch (e) {
+      handleCreateIssueFailed(dispatch);
+    }
+  };
 
 export const handleCreateIssue = (
   dispatch: Dispatch<CreateIssueSucessActionType>,
@@ -148,19 +146,17 @@ export const handleCreateIssueFailed = (
 };
 
 //change issue status
-export const changeIssueStatus = (
-  request: ChangeIssueStatusRequest
-): ThunkResult<void> => async (dispatch) => {
-  try {
-    const response: AxiosResponse<ApiResponse<IssueModel>> = await client.post(
-      "/issue/change-status",
-      request
-    );
-    handleChangeIssueStatus(dispatch, response.data);
-  } catch (e) {
-    handleChangeIssueStatusFailed(dispatch);
-  }
-};
+export const changeIssueStatus =
+  (request: ChangeIssueStatusRequest): ThunkResult<void> =>
+  async (dispatch) => {
+    try {
+      const response: AxiosResponse<ApiResponse<IssueModel>> =
+        await client.post("/issue/change-status", request);
+      handleChangeIssueStatus(dispatch, response.data);
+    } catch (e) {
+      handleChangeIssueStatusFailed(dispatch);
+    }
+  };
 
 export const handleChangeIssueStatus = (
   dispatch: Dispatch<ChangeIssueStatusSucessActionType>,
@@ -182,19 +178,17 @@ export const handleChangeIssueStatusFailed = (
 
 //assign issue to user
 
-export const assignIssueToUser = (
-  request: AssignIssueToUserRequest
-): ThunkResult<void> => async (dispatch) => {
-  try {
-    const response: AxiosResponse<ApiResponse<IssueModel>> = await client.post(
-      "/issue/assign-to-user",
-      request
-    );
-    handleAssignIssueToUser(dispatch, response.data);
-  } catch (e) {
-    handleAssignIssueToUserFailed(dispatch);
-  }
-};
+export const assignIssueToUser =
+  (request: AssignIssueToUserRequest): ThunkResult<void> =>
+  async (dispatch) => {
+    try {
+      const response: AxiosResponse<ApiResponse<IssueModel>> =
+        await client.post("/issue/assign-to-user", request);
+      handleAssignIssueToUser(dispatch, response.data);
+    } catch (e) {
+      handleAssignIssueToUserFailed(dispatch);
+    }
+  };
 
 export const handleAssignIssueToUser = (
   dispatch: Dispatch<AssignIssuesSucessActionType>,

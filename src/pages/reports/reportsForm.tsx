@@ -37,6 +37,9 @@ const useStyles = makeStyles((theme: Theme) =>
       "& .Mui-error": {
         color: "#986c6a",
       },
+      "& .MuiContainer-root": {
+        marginTop: "30px",
+      },
       "& .Mui-sucess": {
         color: "#74c69d",
       },

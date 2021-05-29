@@ -1,6 +1,10 @@
 import { Reducer } from "redux";
-import { IssueModel, IssueDetailedModel } from "../../types/issues/isues";
-import { ApiResponse, ApiPagedResponse } from "../../types/api/apiResponses";
+import { IssueDetailedModel, Status } from "../../types/issues/isues";
+import {
+  ApiResponse,
+  ApiPagedResponse,
+  ApiEmptyDataResponse,
+} from "../../types/api/apiResponses";
 import {
   CHANGE_ISSUE_STATUS,
   CREATE_ISSUE,
@@ -13,10 +17,38 @@ import { getErrorMessage } from "../../utils/actionErrorsUtils";
 
 export interface IssuesReducerType {
   issues: ApiPagedResponse<IssueDetailedModel>;
-  issue: ApiResponse<IssueDetailedModel> | undefined;
+  issue: ApiEmptyDataResponse<IssueDetailedModel>;
   loading: boolean;
   error?: string;
 }
+
+const initialValues: IssueDetailedModel = {
+  issueId: "",
+  assignedUserFirstName: "",
+  assignedUserLastName: "",
+  reportedByUserFirstName: "",
+  reportedByLastName: "",
+  updatedAt: "",
+  openedAt: "",
+  closedAt: "",
+  mileStoneName: "",
+  totalRemainingTimeInSeconds: 0,
+  totalSpentTimeInSeconds: 0,
+  title: "",
+  description: "",
+  status: Status.Open,
+  assignedToUserId: "",
+  reportedByUserId: "",
+  milestoneId: "",
+  projectId: "",
+};
+
+const emptyIssuesData: ApiEmptyDataResponse<IssueDetailedModel> = {
+  isSuccess: true,
+  statusCode: 200,
+  data: initialValues,
+  responseException: undefined,
+};
 
 const issuesData: ApiPagedResponse<IssueDetailedModel> = {
   currentPage: 1,
@@ -31,7 +63,7 @@ const issuesData: ApiPagedResponse<IssueDetailedModel> = {
 
 const defaultState: IssuesReducerType = {
   issues: issuesData,
-  issue: undefined,
+  issue: emptyIssuesData,
   loading: false,
   error: undefined,
 };
@@ -65,7 +97,7 @@ export const issuesReducer: Reducer<IssuesReducerType> = (
       };
 
     case `${API_ACTIONS.FETCH_SUCCESS}${FETCH_ISSUE_BY_ID}`:
-      console.log("action payload", action.payload);
+      console.log("action payload fetch issue by id", action.payload);
       return {
         ...state,
         loading: false,

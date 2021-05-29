@@ -1,10 +1,9 @@
 import axios from "axios";
 
-//http://localhost:44593/
 //
+//http://timetrackinglilo.australiasoutheast.cloudapp.azure.com:50050/api
 const reportClient = axios.create({
-  baseURL:
-    "http://timetrackinglilo.australiasoutheast.cloudapp.azure.com:50050/api",
+  baseURL: "http://localhost:44593/api",
   responseType: "arraybuffer",
   headers: {
     Accept: "application/json",

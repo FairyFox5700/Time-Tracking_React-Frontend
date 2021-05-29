@@ -1,5 +1,5 @@
 import React, { Dispatch, useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import {
   Grid,
   Typography,
@@ -66,7 +66,7 @@ const Register: React.FC<RegisterProps> = ({
     lastName: "",
     username: "",
     confirmPassword: "",
-    clientUrl: "http://localhost:3000/email-confirmation",
+    clientUrl: "http://localhost:3000/email-confirmation-redirect",
   };
 
   const validationSchema = Yup.object().shape({
@@ -84,10 +84,17 @@ const Register: React.FC<RegisterProps> = ({
       }),
   });
 
+  const history = useHistory();
+
   const onSubmit = (values: RegistrationRequest, actions: any) => {
     register(values);
     actions.resetForm();
     actions.setSubmitting(false);
+    setTimeout(() => {
+      if (!errorMessage) {
+        history.push("/email-confirmation");
+      }
+    }, 100);
   };
   const [openPopup, setOpenPopup] = useState(true);
 

@@ -1,6 +1,4 @@
-import Item from "../components/kanban/item";
-import DropWrapper from "../components/kanban/dropWrapper";
-import { BoardStatuses, statuses } from "../data/boardData";
+import { statuses } from "../data/boardData";
 import "../components/kanban/kanban.css";
 import SimpleAccordion from "../components/kanban/accordion";
 import { RootState } from "../store";
@@ -36,20 +34,10 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({
     };
     getAllItems(pagedRequest);
   };
-  //let boardStatuses = statuses(issues.data);
 
   useEffect(() => {
     fetchIssuesData();
   }, [1]);
-
-  /*const chnagesIssueStatus = (newStatus: string, issue: IssueDetailedModel) => {
-    let request: ChangeIssueStatusRequest = {
-      status: newStatus,
-      issueId: issue.issueId,
-    };
-    updateStatus(request);
-    fetchIssuesData();
-  };*/
 
   if (errorMessage) {
     <Alert severity="error">errorMessage</Alert>;
@@ -60,17 +48,6 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({
     let boardStatuses = statuses(issues.data);
     console.log(issues.data);
     console.log(boardStatuses);
-    /* const onDrop = (item: IssueDetailedModel, monitor: any, status: string) => {
-      const mapping: BoardStatuses | undefined = boardStatuses.find(
-        (si) => si.status === status
-      );
-      if (!mapping) return;
-      chnagesIssueStatus(mapping?.type, item);
-    };
-
-    const moveItem = (dragIndex: number, hoverIndex: number) => {
-      const item = issues.data[dragIndex];
-    };*/
 
     const chnagesIssueStatus = (issueId: string, status: string) => {
       let request: ChangeIssueStatusRequest = {
@@ -106,23 +83,7 @@ const KanbanBoard: React.FC<KanbanBoardProps> = ({
         </KanbanColumn>
       );
     });
-    /* <DropWrapper key={i} onDrop={onDrop} status={s.status}>
-          <SimpleAccordion
-            style={s.style}
-            isOver={true}
-            isExpanded={true}
-            name={s.status.toUpperCase()}
-            children={s.data.map((i, idx) => (
-              <Item
-                key={idx}
-                item={i}
-                index={idx}
-                moveItem={moveItem}
-                status={s}
-              />
-            ))}
-          ></SimpleAccordion>
-        </DropWrapper>*/
+
     return (
       <div className="app_bar">
         <div className="kanban__main">

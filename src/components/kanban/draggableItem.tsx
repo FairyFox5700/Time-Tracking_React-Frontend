@@ -1,8 +1,6 @@
-import { any } from "prop-types";
 import { useDrag } from "react-dnd";
 import { ITEM_TYPE } from "../../data/constants";
 import React, { Fragment, useState, useRef } from "react";
-import Window from "./window";
 import { createStyles, makeStyles, Theme, Button } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -139,7 +137,7 @@ const KanbanItem: React.FC<KanbanItemProps> = ({ item, issueId }) => {
               </div>
             </div>
             <div className={classes.button}>
-              <Link to={`/issue-details/${issueId}`}>
+              <Link to={`/issue-details/issueId=${issueId}`}>
                 <Button>Details</Button>
               </Link>
             </div>

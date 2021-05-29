@@ -12,6 +12,7 @@ import CloseIcon from "@material-ui/icons/Close";
 
 const useStyles = makeStyles((theme) => ({
   dialogWrapper: {
+    minWidth: "1200px",
     padding: theme.spacing(1),
     position: "absolute",
     top: theme.spacing(1),

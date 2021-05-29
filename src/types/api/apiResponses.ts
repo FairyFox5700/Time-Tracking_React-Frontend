@@ -34,3 +34,10 @@ export interface ApiResponse<TData> {
   responseException: ResponseException;
   statusCode: number;
 }
+
+export interface ApiEmptyDataResponse<TData> {
+  data: TData;
+  isSuccess: boolean;
+  responseException?: ResponseException;
+  statusCode: number;
+}

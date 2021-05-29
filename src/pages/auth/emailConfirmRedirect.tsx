@@ -8,18 +8,14 @@ import {
   makeStyles,
 } from "@material-ui/core";
 import { Formik, FormikProps, Form } from "formik";
-import * as Yup from "yup";
 import {
   EmailConfirmationRequest,
   ResendEmailConfirmationRequest,
 } from "../../types/auth/auth";
 import SubmitButton from "../../components/controls/submitButton";
-import TextInput from "../../components/controls/textInput";
+
 import FormHeader from "../../components/controls/formHeader";
-import {
-  confirmEmail,
-  resendVerificationEmail,
-} from "../../redux/actions/auth/authActions";
+import { confirmEmail } from "../../redux/actions/auth/authActions";
 import Alert from "@material-ui/lab/Alert";
 import { RootState } from "../../store";
 import { connect } from "react-redux";
@@ -76,7 +72,7 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
-const EmailConfirmation: React.FC<ResendEmailConfirmationProps> = ({
+const EmailConfirmationRedirect: React.FC<ResendEmailConfirmationProps> = ({
   handleChange,
   sendEmailConfirmation,
   resendEmailConfrimation,
@@ -85,32 +81,28 @@ const EmailConfirmation: React.FC<ResendEmailConfirmationProps> = ({
 }) => {
   const classes = useStyles();
 
+  const query = useQuery();
+  useEffect(() => {
+    const request: EmailConfirmationRequest = {
+      userId: query.get("UserId"),
+      code: query.get("Code"),
+    };
+    console.log("request", request);
+    sendEmailConfirmation(request);
+  });
   const initialValues: ResendEmailConfirmationRequest = {
     email: "",
     сlientUrl: "http://localhost:3000/email-confirmation",
   };
 
-  const validationSchema = Yup.object().shape({
-    email: Yup.string().email("Please enter valid email").required("Required"),
-  });
-
   const onSubmit = (values: ResendEmailConfirmationRequest, actions: any) => {
-    resendEmailConfrimation(values);
-    console.log("val", values);
-    actions.resetForm();
-    actions.setSubmitting(false);
     if (!isLoading) <Redirect to="/login" />;
   };
 
   return (
     <Grid className={classes.root}>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={onSubmit}
-        validationSchema={validationSchema}
-      >
+      <Formik initialValues={initialValues} onSubmit={onSubmit}>
         {(props: FormikProps<ResendEmailConfirmationRequest>) => {
-          const { values, touched, errors, handleBlur, handleChange } = props;
           return (
             <Form>
               <FormHeader children="Email confirmation" />
@@ -121,41 +113,20 @@ const EmailConfirmation: React.FC<ResendEmailConfirmationProps> = ({
                     component="h2"
                     className={classes.textPrimary}
                   >
-                    Email confirmation link was sent to yor email adress. Please
-                    check your email box.
-                  </Typography>
-                </Grid>
-                <Grid item lg={10} md={10} sm={10} xs={10}>
-                  <Typography
-                    variant="h4"
-                    component="h2"
-                    className={classes.text}
-                  >
-                    Have not get an email confirmation link? Type your email in
-                    input below and we will send email confirmation link to you
-                    again
+                    Your email was confirmed. Click to login
                   </Typography>
                 </Grid>
                 <Grid item lg={12} md={12} sm={12} xs={12}>
                   <Divider variant="inset" component="li" />
                 </Grid>
-                <TextInput
-                  name="email"
-                  id="email"
-                  label="Email"
-                  value={values.email}
-                  type="email"
-                  helperText={errors.email && touched.email ? errors.email : ""}
-                  error={errors.email && touched.email ? true : false}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
                 <Grid item lg={6} md={6} sm={6} xs={6}>
-                  <SubmitButton
-                    children={isLoading ? "Loading" : "Resend"}
-                    onClick={() => onSubmit}
-                    disabled={isLoading}
-                  ></SubmitButton>
+                  <Link to="/login">
+                    <SubmitButton
+                      children={isLoading ? "Loading" : "Login"}
+                      onClick={() => onSubmit}
+                      disabled={isLoading}
+                    ></SubmitButton>
+                  </Link>
                 </Grid>
                 {errorMessage && (
                   <Grid item lg={10} md={10} sm={10} xs={10}>
@@ -177,9 +148,12 @@ const mapStateToProps = (state: RootState) => ({
 });
 const mapDispatchToProps = (dispatch: Dispatch<any>) => {
   return {
-    resendEmailConfrimation: (model: ResendEmailConfirmationRequest) =>
-      dispatch(resendVerificationEmail(model)),
+    sendEmailConfirmation: (model: EmailConfirmationRequest) =>
+      dispatch(confirmEmail(model)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(EmailConfirmation);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(EmailConfirmationRedirect);

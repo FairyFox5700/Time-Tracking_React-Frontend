@@ -6,6 +6,7 @@ import ReportForm from "./reports/reportsForm";
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
+    marginTop: "30px",
     backgroundColor: "white",
     "& .MuiGrid-root ": {
       alignContent: "center",

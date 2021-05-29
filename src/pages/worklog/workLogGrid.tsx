@@ -61,8 +61,10 @@ const WorkLogGrid: React.FC<WorkLogGridProps> = ({
   }, [1]);
 
   const filteredWorklogs = () => {
-    if (issueId && worklogs) {
-      return worklogs.filter((e) => e.issueId === issueId);
+    console.log("worklogs");
+    if (issueId != null) {
+      console.log("worklogs", issueId);
+      return worklogs?.filter((e) => e.issueId === issueId);
     }
     if (userId && worklogs) {
       return worklogs.filter((e) => e.userId === userId);

@@ -7,9 +7,9 @@ let axiosConfig = {
 };
 
 //
-//http://localhost:43396
-const apiUrl = "http://localhost:43396/api";
-//"http://timetrackinglilo.australiasoutheast.cloudapp.azure.com:50054/api";
+//http://localhost:43396/api"
+const apiUrl =
+  "http://timetrackinglilo.australiasoutheast.cloudapp.azure.com:50054/api";
 const authClient = axios.create({
   baseURL: apiUrl,
   headers: axiosConfig,

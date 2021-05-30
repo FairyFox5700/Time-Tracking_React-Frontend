@@ -1,10 +1,11 @@
 import axios from "axios";
 import { RemoveAccessToken, RemoveRefreshToken } from "../../utils/jwtUtils";
 import { Redirect } from "react-router-dom";
-// "http://timetrackinglilo.australiasoutheast.cloudapp.azure.com:50052/api"
 //
+//"http://localhost:57732/api"
 const client = axios.create({
-  baseURL: "http://localhost:57732/api",
+  baseURL:
+    "http://timetrackinglilo.australiasoutheast.cloudapp.azure.com:50052/api",
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json;charset=UTF-8",

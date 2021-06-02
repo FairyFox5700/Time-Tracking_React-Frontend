@@ -73,8 +73,9 @@ const ForgotPasswordForm: React.FC<ForgotPasswordProps> = ({
 
   const initialValues: ForgotPasswordRequest = {
     email: "",
-    clientUrl: "http://localhost:3000/reset-password",
+    clientUrl: "http://fathomless-badlands-84691.herokuapp.com/reset-password",
   };
+  //http://localhost:3000/reset-password
 
   const validationSchema = Yup.object().shape({
     email: Yup.string().email("Please enter valid email").required("Required"),

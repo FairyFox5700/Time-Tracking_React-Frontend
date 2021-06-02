@@ -1,7 +1,6 @@
 import IconButton from "@material-ui/core/IconButton";
 import { AccountCircle } from "@material-ui/icons";
 import React from "react";
-
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { RemoveAccessToken, RemoveRefreshToken } from "../../utils/jwtUtils";

@@ -92,9 +92,11 @@ const EmailConfirmationRedirect: React.FC<ResendEmailConfirmationProps> = ({
   });
   const initialValues: ResendEmailConfirmationRequest = {
     email: "",
-    сlientUrl: "http://localhost:3000/email-confirmation",
+    сlientUrl:
+      "http://fathomless-badlands-84691.herokuapp.com/email-confirmation",
   };
 
+  //http://localhost:3000/email-confirmation
   const onSubmit = (values: ResendEmailConfirmationRequest, actions: any) => {
     if (!isLoading) <Redirect to="/login" />;
   };

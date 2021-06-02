@@ -10,5 +10,6 @@ declare module "styled-components" {
       background: string;
       text: string;
     };
+    fontSize: string | number;
   }
 }

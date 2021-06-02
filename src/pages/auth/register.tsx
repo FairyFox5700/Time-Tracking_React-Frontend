@@ -66,9 +66,11 @@ const Register: React.FC<RegisterProps> = ({
     lastName: "",
     username: "",
     confirmPassword: "",
-    clientUrl: "http://localhost:3000/email-confirmation-redirect",
+    clientUrl:
+      "http://fathomless-badlands-84691.herokuapp.com/email-confirmation-redirect",
   };
 
+  //http://localhost:3000/email-confirmation-redirect
   const validationSchema = Yup.object().shape({
     email: Yup.string().email("Please enter valid email").required("Required"),
     firstName: Yup.string().required("First name is required"),

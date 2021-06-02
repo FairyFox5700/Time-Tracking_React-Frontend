@@ -97,7 +97,7 @@ const Register: React.FC<RegisterProps> = ({
       if (!errorMessage) {
         history.push("/email-confirmation");
       }
-    }, 100000);
+    }, 30000);
   };
   const [openPopup, setOpenPopup] = useState(true);
 

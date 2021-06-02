@@ -87,8 +87,11 @@ const EmailConfirmation: React.FC<ResendEmailConfirmationProps> = ({
 
   const initialValues: ResendEmailConfirmationRequest = {
     email: "",
-    сlientUrl: "http://localhost:3000/email-confirmation",
+    сlientUrl:
+      "http://fathomless-badlands-84691.herokuapp.com/email-confirmation",
   };
+  //
+  //http://localhost:3000/email-confirmation
 
   const validationSchema = Yup.object().shape({
     email: Yup.string().email("Please enter valid email").required("Required"),

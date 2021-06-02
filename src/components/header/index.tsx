@@ -6,8 +6,6 @@ import NotificationItem from "./notification";
 import Messages from "./messages";
 import Search from "./search";
 import SwitchTheme from "./switchTheme";
-
-import Button from "@material-ui/core/Button";
 import SwitchSideBar from "./sideBarSwitch";
 import ThemeProps from "../../types/ThemProps";
 import { isUserLoggedIn } from "../../utils/jwtUtils";

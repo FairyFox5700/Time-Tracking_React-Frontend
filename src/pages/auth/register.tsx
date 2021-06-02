@@ -90,13 +90,14 @@ const Register: React.FC<RegisterProps> = ({
 
   const onSubmit = (values: RegistrationRequest, actions: any) => {
     register(values);
+    console.log(values);
     actions.resetForm();
     actions.setSubmitting(false);
     setTimeout(() => {
       if (!errorMessage) {
         history.push("/email-confirmation");
       }
-    }, 100);
+    }, 100000);
   };
   const [openPopup, setOpenPopup] = useState(true);
 

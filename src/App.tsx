@@ -14,7 +14,6 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import Reports from "./pages/reports";
 import Settings from "./pages/setting";
 import MyWork from "./pages/myTasks";
-import Home from "./pages/home";
 import KanbanBoard from "./pages/kanbanBoard";
 import Calendar from "./pages/calendar";
 import HeroSection from "./components/hero";

@@ -67,7 +67,7 @@ const Register: React.FC<RegisterProps> = ({
     username: "",
     confirmPassword: "",
     clientUrl:
-      "http://fathomless-badlands-84691.herokuapp.com/email-confirmation-redirect",
+      "http://timetrackingapp2021.herokuapp.com/email-confirmation-redirect",
   };
 
   //http://localhost:3000/email-confirmation-redirect

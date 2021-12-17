@@ -73,7 +73,8 @@ const ForgotPasswordForm: React.FC<ForgotPasswordProps> = ({
 
   const initialValues: ForgotPasswordRequest = {
     email: "",
-    clientUrl: "http://timetrackingapp2021.herokuapp.com/reset-password",
+    //todo: change approach to get url from config or smth
+    clientUrl: "http://localhost:43396/reset-password",
   };
   //http://localhost:3000/reset-password
 

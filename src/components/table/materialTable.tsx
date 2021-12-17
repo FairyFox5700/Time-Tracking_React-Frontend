@@ -190,7 +190,7 @@ export function useMaterialTable<T>(props: MaterialTableProps<T>) {
       rowsPerPageOptions={pages}
       rowsPerPage={rowsPerPage}
       count={records.length}
-      onChangePage={handleChangePage}
+      onPageChange={handleChangePage}
       onChangeRowsPerPage={handleChangeRowsPerPage}
     />
   );

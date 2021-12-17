@@ -5,7 +5,8 @@ import { Redirect } from "react-router-dom";
 //"http://localhost:57732/api"
 const client = axios.create({
   baseURL:
-    "http://timetrackinglilo.australiasoutheast.cloudapp.azure.com:50052/api",
+    //todo: change approach to get url from config or smth
+    "http://localhost:57732/api",
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json;charset=UTF-8",

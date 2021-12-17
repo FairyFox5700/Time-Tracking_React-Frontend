@@ -7,7 +7,7 @@ import { RootState } from "../../store";
 import { PagedRequest } from "../../types/api/apiRequests";
 import {
   CircularProgress,
-  createMuiTheme,
+  createTheme,
   MuiThemeProvider,
   Typography,
 } from "@material-ui/core";
@@ -70,7 +70,7 @@ const ProjectsDataGrid: React.FC<ProjectsDGProps> = ({
   const [page, setPage] = useState(1);
 
   const getMuiTheme = () =>
-    createMuiTheme({
+    createTheme({
       overrides: {
         MUIDataTable: {
           paper: {

@@ -85,9 +85,10 @@ const EmailConfirmation: React.FC<ResendEmailConfirmationProps> = ({
 }) => {
   const classes = useStyles();
 
+  //todo: change approach to get url from config or smth
   const initialValues: ResendEmailConfirmationRequest = {
     email: "",
-    сlientUrl: "http://timetrackingapp2021.herokuapp.com/email-confirmation",
+    сlientUrl: "http://localhost:43396/email-confirmation",
   };
   //
   //http://localhost:3000/email-confirmation

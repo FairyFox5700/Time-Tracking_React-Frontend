@@ -5,7 +5,7 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
-import { GridList, List, ListItem } from "@material-ui/core";
+import { ImageList } from "@material-ui/core";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: "center",
       overflow: "hidden",
     },
-    gridList: {
+    ImageList: {
       width: 400,
       height: 800,
       alignItems: "flex-start",
@@ -58,9 +58,9 @@ const SimpleAccordion: React.FC<ColumnProps> = ({
           </AccordionSummary>
           <AccordionDetails className="cards">
             <div className={classes.root}>
-              <GridList className={classes.gridList} cols={1}>
+              <ImageList className={classes.ImageList} cols={1}>
                 {children}
-              </GridList>
+              </ImageList>
             </div>
           </AccordionDetails>
         </Accordion>

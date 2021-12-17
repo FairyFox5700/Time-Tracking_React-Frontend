@@ -3,10 +3,9 @@ import React, { Dispatch, useEffect, useState } from "react";
 import { Alert } from "@material-ui/lab";
 import { connect } from "react-redux";
 import { RootState } from "../../store";
-import { PagedRequest } from "../../types/api/apiRequests";
 import {
   CircularProgress,
-  createMuiTheme,
+  createTheme,
   MuiThemeProvider,
   Typography,
 } from "@material-ui/core";
@@ -62,7 +61,7 @@ const AppUserAccountDGTable: React.FC<AppUserAccountDGProps> = ({
   const [page, setPage] = useState(1);
 
   const getMuiTheme = () =>
-    createMuiTheme({
+    createTheme({
       overrides: {
         MUIDataTable: {
           paper: {
@@ -81,7 +80,7 @@ const AppUserAccountDGTable: React.FC<AppUserAccountDGProps> = ({
 
   useEffect(() => {
     fetchPagesAppUserAccounts();
-  }, [isLoading]);
+  }, [fetchPagesAppUserAccounts, isLoading]);
 
   const options = {
     filter: true,

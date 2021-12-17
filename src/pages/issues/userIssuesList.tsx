@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       padding: theme.spacing(2),
     },
-    gridList: {
+    ImageList: {
       width: 500,
       height: 450,
     },

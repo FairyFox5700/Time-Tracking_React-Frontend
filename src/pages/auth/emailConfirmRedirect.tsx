@@ -92,7 +92,8 @@ const EmailConfirmationRedirect: React.FC<ResendEmailConfirmationProps> = ({
   });
   const initialValues: ResendEmailConfirmationRequest = {
     email: "",
-    сlientUrl: "http://timetrackingapp2021.herokuapp.com/email-confirmation",
+    //todo: change approach to get url from config or smth
+    сlientUrl: "http://localhost:43396/email-confirmation",
   };
 
   //http://localhost:3000/email-confirmation

@@ -4,7 +4,8 @@ import axios from "axios";
 //"http://timetrackinglilo.australiasoutheast.cloudapp.azure.com:50050/api"
 const reportClient = axios.create({
   baseURL:
-    "http://timetrackinglilo.australiasoutheast.cloudapp.azure.com:50050/api",
+    //todo: change approach to get url from config or smth
+    "http://localhost:44593/api",
   responseType: "arraybuffer",
   headers: {
     Accept: "application/json",

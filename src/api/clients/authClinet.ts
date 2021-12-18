@@ -1,4 +1,5 @@
 import axios from "axios";
+import {apiUrls} from "./config"
 let axiosConfig = {
   headers: {
     "Content-Type": "application/json;charset=UTF-8",
@@ -6,11 +7,8 @@ let axiosConfig = {
   },
 };
 
-//
-//http://localhost:43396/api"
-//todo: change approach to get url from config or smth
 const apiUrl =
-  "http://localhost:43396/api";
+  `${apiUrls.identityUrl}/api`;
 const authClient = axios.create({
   baseURL: apiUrl,
   headers: axiosConfig,

@@ -18,6 +18,7 @@ import Alert from "@material-ui/lab/Alert";
 import { RootState } from "../../store";
 import { connect } from "react-redux";
 import Divider from "@material-ui/core/Divider";
+import { apiUrls } from "../../api/clients/config";
 
 type ForgotPasswordProps = ReturnType<typeof mapStateToProps> &
   ReturnType<typeof mapDispatchToProps> & {
@@ -73,8 +74,7 @@ const ForgotPasswordForm: React.FC<ForgotPasswordProps> = ({
 
   const initialValues: ForgotPasswordRequest = {
     email: "",
-    //todo: change approach to get url from config or smth
-    clientUrl: "http://localhost:43396/reset-password",
+    clientUrl: `${apiUrls.identityUrl}/reset-password`,
   };
   //http://localhost:3000/reset-password
 

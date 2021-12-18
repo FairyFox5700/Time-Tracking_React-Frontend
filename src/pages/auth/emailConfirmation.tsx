@@ -24,6 +24,7 @@ import Alert from "@material-ui/lab/Alert";
 import { RootState } from "../../store";
 import { connect } from "react-redux";
 import Divider from "@material-ui/core/Divider";
+import { apiUrls } from "../../api/clients/config";
 
 type ResendEmailConfirmationProps = ReturnType<typeof mapStateToProps> &
   ReturnType<typeof mapDispatchToProps> & {
@@ -85,10 +86,9 @@ const EmailConfirmation: React.FC<ResendEmailConfirmationProps> = ({
 }) => {
   const classes = useStyles();
 
-  //todo: change approach to get url from config or smth
   const initialValues: ResendEmailConfirmationRequest = {
     email: "",
-    сlientUrl: "http://localhost:43396/email-confirmation",
+    сlientUrl: `${apiUrls.identityUrl}/email-confirmation`,
   };
   //
   //http://localhost:3000/email-confirmation

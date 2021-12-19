@@ -24,6 +24,7 @@ import Alert from "@material-ui/lab/Alert";
 import { RootState } from "../../store";
 import { connect } from "react-redux";
 import Divider from "@material-ui/core/Divider";
+import { apiUrls } from "../../api/clients/config";
 
 type ResendEmailConfirmationProps = ReturnType<typeof mapStateToProps> &
   ReturnType<typeof mapDispatchToProps> & {
@@ -84,10 +85,10 @@ const EmailConfirmation: React.FC<ResendEmailConfirmationProps> = ({
   errorMessage,
 }) => {
   const classes = useStyles();
-
+// "http://timetrackingapp2021.herokuapp.com/email-confirmation",
   const initialValues: ResendEmailConfirmationRequest = {
     email: "",
-    сlientUrl: "http://timetrackingapp2021.herokuapp.com/email-confirmation",
+    сlientUrl: `${apiUrls.identityUrl}/email-confirmation`,
   };
   //
   //http://localhost:3000/email-confirmation

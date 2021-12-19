@@ -1,14 +1,15 @@
 import axios from "axios";
+import {apiUrls} from "./config"
 let axiosConfig = {
   headers: {
     "Content-Type": "application/json;charset=UTF-8",
     "Access-Control-Allow-Origin": "*",
   },
 };
-
 //"http://timetrackinglilo.australiasoutheast.cloudapp.azure.com:50054/api"
 //
-const apiUrl ="http://localhost:43396/api";
+const apiUrl =
+  `${apiUrls.identityUrl}/api`;
 const authClient = axios.create({
   baseURL: apiUrl,
   headers: axiosConfig,

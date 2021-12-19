@@ -81,7 +81,7 @@ const AppUserAccountDGTable: React.FC<AppUserAccountDGProps> = ({
 
   useEffect(() => {
     fetchPagesAppUserAccounts();
-  }, [isLoading]);
+  }, [fetchPagesAppUserAccounts, isLoading]);
 
   const options = {
     filter: true,

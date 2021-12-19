@@ -7,6 +7,7 @@ import {
   FormHelperText,
   makeStyles,
 } from "@material-ui/core";
+import Item from "../kanban/item";
 
 const useStyles = makeStyles((theme) => ({
   root: {

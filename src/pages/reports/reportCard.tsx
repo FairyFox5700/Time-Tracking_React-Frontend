@@ -58,7 +58,6 @@ const useStyles = makeStyles((theme) => ({
 export interface ReportLogCardProps {
   workLog: WorkLogDetails;
 }
-
 const ReportCard: React.FC<ReportLogCardProps> = () => {
   const reportTypes = ToArray(ReportType);
   const classes = useStyles();

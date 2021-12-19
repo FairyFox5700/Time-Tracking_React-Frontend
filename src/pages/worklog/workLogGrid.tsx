@@ -1,5 +1,5 @@
 import React, { Dispatch, useEffect } from "react";
-import { GridList } from "@material-ui/core";
+import { ImageList } from "@material-ui/core";
 import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
 import { PagedRequest } from "../../types/api/apiRequests";
 import { RootState } from "../../store";
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexDirection: "column",
       backgroundColor: theme.palette.background.paper,
     },
-    gridList: {
+    ImageList: {
       width: 300,
       height: 450,
     },
@@ -81,11 +81,11 @@ const WorkLogGrid: React.FC<WorkLogGridProps> = ({
   } else {
     return (
       <div className={classes.root}>
-        <GridList className={classes.gridList} cols={2.5}>
+        <ImageList className={classes.ImageList} cols={2.5}>
           {filteredWorklogs().map((tile) => (
             <WorkLogCard workLog={tile} />
           ))}
-        </GridList>
+        </ImageList>
       </div>
     );
   }

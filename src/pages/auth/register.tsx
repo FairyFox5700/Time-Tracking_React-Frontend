@@ -18,6 +18,7 @@ import Alert from "@material-ui/lab/Alert";
 import { RootState } from "../../store";
 import { connect } from "react-redux";
 import FormPopupDialog from "../../components/popup/formPopup";
+import { apiUrls } from "../../api/clients/config";
 
 type RegisterProps = ReturnType<typeof mapStateToProps> &
   ReturnType<typeof mapDispatchToProps> & {
@@ -67,7 +68,7 @@ const Register: React.FC<RegisterProps> = ({
     username: "",
     confirmPassword: "",
     clientUrl:
-      "http://timetrackingapp2021.herokuapp.com/email-confirmation-redirect",
+      `${apiUrls.identityUrl}/email-confirmation-redirect`,
   };
 
   //http://localhost:3000/email-confirmation-redirect

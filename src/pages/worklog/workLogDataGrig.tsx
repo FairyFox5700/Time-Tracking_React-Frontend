@@ -8,7 +8,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import {
   Checkbox,
   CircularProgress,
-  createMuiTheme,
+  createTheme,
   MuiThemeProvider,
   Switch,
   Typography,
@@ -110,7 +110,7 @@ const WorkLogDataGrid: React.FC<WorkLogDataGridProps> = ({
   const [page, setPage] = useState(1);
 
   const getMuiTheme = () =>
-    createMuiTheme({
+    createTheme({
       overrides: {
         MUIDataTable: {
           paper: {

@@ -23,3 +23,11 @@ export default {
     );
   },
 };
+
+
+export const apiUrls = {
+  timeTrackingApi: "http://localhost:57732/api",
+  identityUrl: "http://localhost:43396",
+  reportGenerationApi: "http://localhost:44593/api"
+};
+

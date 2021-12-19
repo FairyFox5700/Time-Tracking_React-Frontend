@@ -1,0 +1,43 @@
+.text-white-secondary{
+    color:black;
+}
+
+.issue_card {
+    min-width: 300;
+}
+.font-main{
+    font-size: 18px;
+}
+.font-important-stat{
+    font-size: 40px;
+    font-weight: 700;
+}
+.font-secondary{
+    font-size:16px;
+}
+
+.decoration-none{
+  text-decoration: none !important;
+}
+.bg-gr-purple{
+    background: #eae4e9;
+  
+}
+.bg-gr-blue{
+background: #dfe7fd;
+}
+
+.bg-gr-green{
+background: #e2ece9;
+
+}
+
+.bg-gr-red{
+background: #fad2e1;
+}
+.post-card{
+    box-shadow: none;
+}
+.post-card:hover{
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}

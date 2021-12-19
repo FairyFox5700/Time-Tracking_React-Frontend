@@ -1,0 +1,1 @@
+export const GENERATE_REPORT = "GENERATE_REPORT";

@@ -1,0 +1,40 @@
+.container_search :hover {
+    background-color: rgb(219, 207, 207)
+}
+
+.switch_flex {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+}
+.container_header {
+font-family: Warnes;
+font-style: normal;
+font-weight: normal;
+font-size: 50px;
+line-height: 65px;
+justify-items: flex-start;
+flex-direction: row;
+
+}
+
+.container_info {
+  height: 60px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+
+@media screen and (max-width: 670px) {
+  .container_search {
+    margin-left: 3px;
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container_search {
+    padding: 0;
+  }
+}

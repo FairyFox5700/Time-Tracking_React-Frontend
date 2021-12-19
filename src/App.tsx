@@ -15,7 +15,7 @@ import Reports from "./pages/reports/reports";
 import Settings from "./pages/settings/setting";
 import MyWork from "./pages/myTasks";
 import KanbanBoard from "./pages/boards/kanbanBoard";
-import {Calendar} from "./pages/calendar";
+import Calendar from "./pages/calendar";
 import HeroSection from "./components/hero";
 import Login from "./pages/auth/loginForm";
 import Register from "./pages/auth/register";

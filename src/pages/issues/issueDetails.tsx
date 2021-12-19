@@ -21,7 +21,7 @@ import { RootState } from "../../store";
 import { fetchIssuesById } from "../../redux/actions/issuesActions";
 import { fetchAllUsers } from "../../redux/actions/usersActions";
 import { connect } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import { Alert } from "@material-ui/lab";
 import CircularUnderLoad from "../../components/loader/circularLoader";
 import AlarmAddIcon from "@material-ui/icons/AlarmAdd";
@@ -99,6 +99,7 @@ const IssueDetailedCard: React.FC<IssueDetailsProps> = ({
   issue,
 }) => {
   const location = useLocation();
+  const history = useHistory();
   console.log("loc", location.pathname.slice(-36));
   const issueId = location.pathname.slice(-36);
   console.log("issuedId:", issueId);
@@ -122,6 +123,10 @@ const IssueDetailedCard: React.FC<IssueDetailsProps> = ({
   };
   const [openPopup, setOpenPopup] = useState(true);
 
+  const handleClose = () => {
+    history.push("/board")
+  }
+
   if (errorMessage) {
     <Alert severity="error">{errorMessage}</Alert>;
   }
@@ -132,7 +137,12 @@ const IssueDetailedCard: React.FC<IssueDetailsProps> = ({
     console.log("isLoading", isLoading);
     const classNameForBg = `issue_card ${setBackground(issue)}`;
     return (
-      <PopupDialog title="" openPopup={openPopup} setOpenPopup={setOpenPopup}>
+      <PopupDialog
+        onClose={handleClose}
+        title=""
+        openPopup={openPopup}
+        setOpenPopup={setOpenPopup}
+      >
         <Card className={classes.root}>
           <CardContent className={classes.content}>
             <Grid container spacing={0}>

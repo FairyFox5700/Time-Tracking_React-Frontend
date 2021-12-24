@@ -27,12 +27,14 @@ export interface DialogPopupProps {
   clidren?: any;
   openPopup: any;
   setOpenPopup: any;
+  onClose?: () => void;
 }
 const PopupDialog: React.FC<DialogPopupProps> = ({
   title,
   children,
   openPopup,
   setOpenPopup,
+  onClose
 }) => {
   const classes = useStyles();
 
@@ -47,6 +49,7 @@ const PopupDialog: React.FC<DialogPopupProps> = ({
           color="secondary"
           onClick={() => {
             setOpenPopup(false);
+            onClose && onClose();
           }}
         >
           <CloseIcon />

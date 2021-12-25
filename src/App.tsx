@@ -43,7 +43,6 @@ import RestrictedAccessPage from "./pages/statuses/restrictedAccessPage";
 import { getBoardType, isUserLoggedIn } from "./utils/jwtUtils";
 import GanttReport from "./pages/reports/ganttReport";
 import TeamBoard from "./pages/boards/teamBoard";
-import kanbanBoard from "./pages/boards/kanbanBoard";
 const App = () => {
   const [theme, setTheme] = usePeristedState<DefaultTheme>("theme", light);
 
@@ -51,14 +50,13 @@ const App = () => {
     setTheme(theme.title === "light" ? dark : light);
   };
 
-
-  const getBoardComponent = ():any => {
-    if(getBoardType().toUpperCase()==="TEAM"){
+  const getBoardComponent = (): any => {
+    if (getBoardType().toUpperCase() === "TEAM") {
       return TeamBoard;
-    }else{
+    } else {
       return KanbanBoard;
     }
-  }
+  };
   const isLogedIn = isUserLoggedIn();
   return (
     <Provider store={store}>
@@ -70,7 +68,6 @@ const App = () => {
               <GlobalStyle />
               <Switch>
                 <Route path="/" exact component={HeroSection} />
-
                 <AuthRoute path="/home" exact component={getBoardComponent()} />
                 <AuthRoute path="/generate-report" component={Reports} />
                 <AuthRoute path="/team-board" component={TeamBoard} />
@@ -84,19 +81,9 @@ const App = () => {
                 <Route path="/issue-details" component={IssueDetailedCard}>
                   <Route path="/:id" component={IssueDetailedCard} />
                 </Route>
-                <Route
-                  path="/email-confirmation"
-                  component={EmailConfirmation}
-                />
-                <Route
-                  path="/access-resticted"
-                  component={RestrictedAccessPage}
-                />
-                <Route
-                  path="/email-confirmation-redirect"
-                  component={EmailConfirmationRedirect}
-                />
-
+                <Route path="/email-confirmation" component={EmailConfirmation}/>
+                <Route path="/access-resticted" component={RestrictedAccessPage}/>
+                <Route path="/email-confirmation-redirect" component={EmailConfirmationRedirect}/>
                 <Route path="/forgot-password" component={ForgotPasswordForm} />
                 <AuthRoute path="/create-issue" component={IssueForm} />
                 <AuthRoute path="/create-milestone" component={MilestoneForm} />
@@ -109,10 +96,7 @@ const App = () => {
                 <AuthRoute path="/projects" component={ProjectsDataGrid} />
                 <AuthRoute path="/milestones" component={MilestonesDGGrid} />
                 <AuthRoute path="/users" component={AppUserDataGrid} />
-                <AuthRoute
-                  path="/user-accounts"
-                  component={AppUserAccountDGTable}
-                />
+                <AuthRoute path="/user-accounts" component={AppUserAccountDGTable}/>
                 <AuthRoute path="/user-worklogs" component={WorkLogDataGrid} />
                 <Route exact path="/404" component={NotFoundPage} />
                 <Route exact path="/403" component={RestrictedAccessPage} />

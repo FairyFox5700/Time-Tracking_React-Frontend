@@ -9,7 +9,7 @@ let axiosConfig = {
 //"http://timetrackinglilo.australiasoutheast.cloudapp.azure.com:50054/api"
 //
 const apiUrl =
-  `${apiUrls.identityUrl}/api`;
+  `${apiUrls.identityUrl}`;
 const authClient = axios.create({
   baseURL: apiUrl,
   headers: axiosConfig,

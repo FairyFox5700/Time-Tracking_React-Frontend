@@ -26,8 +26,8 @@ export default {
 
 
 export const apiUrls = {
-  timeTrackingApi: "http://localhost:57732/api",
-  identityUrl: "http://localhost:43396",
-  reportGenerationApi: "http://localhost:44593/api"
+  timeTrackingApi: "http://localhost:6500/api/issue-tracking",
+  identityUrl: "http://localhost:6500/api/identity",
+  reportGenerationApi: "http://localhost:6500/api/reporting"
 };
 

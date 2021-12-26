@@ -20,15 +20,18 @@ const useStyles = makeStyles((theme: Theme) =>
       whiteSpace: "nowrap",
       justifyСontent: "center",
       alignSelf: "center",
-      marginLeft: "8px",
+      marginLeft: "5px",
       textTransform: "capitalize",
-      padding: "10px",
+      padding: "6px",
     },
     label: {
       display: "inline",
       fontSize: "16px",
       fontWeight: "normal",
     },
+    sx:{
+      backgroundColor:"#a7a2db"
+    }
   })
 );
 
@@ -38,7 +41,7 @@ const AvatarItem: React.FC<AvatarProps> = ({ name, surname, label }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Avatar>{iconName}</Avatar>
+      <Avatar className = {classes.sx}>{iconName.toUpperCase()}</Avatar>
       <div className={classes.userTittle}>
         <Typography variant="subtitle2" className={classes.label}>
           <b>{label}:</b> {fullName}

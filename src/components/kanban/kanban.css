@@ -335,15 +335,15 @@
 }
 
 .card-color-low {
-  background: linear-gradient(90deg, #9ea7fc 17%, #6eb4f7 83%);
+  background: #ffddef;
 }
 
 .card-color-high {
-  background: linear-gradient(138.6789deg, #c781ff 17%, #e57373 83%);
+  background: #c0bafc;
 }
 
 .card-color-med {
-  background: linear-gradient(138.6789deg, #81d5ee 17%, #7ed492 83%);
+  background: #e7cbfb;
 }
 
 .card__header-priority {

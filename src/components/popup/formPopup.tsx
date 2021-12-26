@@ -22,7 +22,6 @@ const FormPopupDialog: React.FC<FormPopupProps> = ({
       <DialogContent>{children}</DialogContent>
       <DialogActions>
         <Button onClick={() => setOpenPopup(false)} color="primary">
-          <CloseIcon />
         </Button>
       </DialogActions>
     </Dialog>

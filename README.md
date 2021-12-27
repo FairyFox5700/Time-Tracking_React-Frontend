@@ -13,9 +13,9 @@ Password: Pa$$w0rd_TeamLead
 UserName: ityshchenko@example.com
 Password:Pa$$w0rd_Engineer
 _________________________________________________________________________________________________________________________________________________________________
-## Available Scripts
+## How to start locally
 
-In the project directory, you can run:
+In the project directory, you should run:
 ### `npm install`
 ### `npm start`
 

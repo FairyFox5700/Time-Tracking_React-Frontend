@@ -21,6 +21,7 @@
     "date-arithmetic": "^4.1.0",
     "date-fns": "^2.21.1",
     "formik": "^2.2.6",
+    "highcharts": "^9.3.2",
     "highcharts-react-official": "^3.1.0",
     "history": "^5.0.0",
     "jwt-decode": "^3.1.2",

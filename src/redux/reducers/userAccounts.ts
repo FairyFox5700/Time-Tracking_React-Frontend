@@ -1,13 +1,13 @@
 import { Reducer } from "redux";
-
 import { ApiResponse } from "../../types/api/apiResponses";
 import { UserAccountModel } from "../../types/auth/userAccount";
 import { getErrorMessage } from "../../utils/actionErrorsUtils";
 import { API_ACTIONS } from "../actions/apiActions";
 import {
   GET_ALL_USER_ACCOUNTS,
-  GET_USER_ACCOUNT_BY_ID,
+  GET_USER_ACCOUNT_BY_ID
 } from "../constants/authUsers";
+
 
 export interface UserAccountReducerType {
   users: ApiResponse<UserAccountModel> | undefined;

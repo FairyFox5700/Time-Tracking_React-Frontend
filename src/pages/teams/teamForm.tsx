@@ -1,25 +1,24 @@
-import React, { Dispatch, useEffect, useState } from "react";
-import { Grid, makeStyles, Theme, createStyles } from "@material-ui/core";
-import { Formik, FormikProps, Form } from "formik";
-import * as Yup from "yup";
-import { TeamModel } from "../../types/teams/teams";
+import { createStyles, Grid, makeStyles, Theme } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
+import { Form, Formik, FormikProps } from "formik";
+import React, { Dispatch, useEffect } from "react";
 import { connect } from "react-redux";
+import { useHistory } from "react-router";
+import * as Yup from "yup";
+import FormHeader from "../../components/controls/formHeader";
+import SelectInput from "../../components/controls/selectInput";
+import SubmitButton from "../../components/controls/submitButton";
 import TextInput from "../../components/controls/textInput";
 import CircularUnderLoad from "../../components/loader/circularLoader";
-import FormHeader from "../../components/controls/formHeader";
-import SubmitButton from "../../components/controls/submitButton";
+import { fetchProjects } from "../../redux/actions/projectsActions";
 import { addTeam } from "../../redux/actions/teamsActions";
 import { RootState } from "../../store";
+import { PagedRequest } from "../../types/api/apiRequests";
 import {
   ProjectDetailsModel,
-  ProjectModel,
+  ProjectModel
 } from "../../types/projects/project";
-import { PagedRequest } from "../../types/api/apiRequests";
-import AutoCompleteInput from "../../components/controls/autoCompeteInput";
-import { fetchProjects } from "../../redux/actions/projectsActions";
-import SelectInput from "../../components/controls/selectInput";
-import { useHistory } from "react-router";
+import { TeamModel } from "../../types/teams/teams";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

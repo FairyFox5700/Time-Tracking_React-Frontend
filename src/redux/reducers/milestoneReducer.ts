@@ -1,16 +1,14 @@
 import { Reducer } from "redux";
-import { ApiResponse, ApiPagedResponse } from "../../types/api/apiResponses";
 import {
-  CREATE_MILESTONE,
-  GET_ALL_MILESTONES_ASYNC,
-  FETCH_MILESTONE_BY_ID,
+  CREATE_MILESTONE, FETCH_MILESTONE_BY_ID, GET_ALL_MILESTONES_ASYNC
 } from "../../redux/constants/milestines";
-import { API_ACTIONS } from "../actions/apiActions";
+import { ApiPagedResponse, ApiResponse } from "../../types/api/apiResponses";
 import {
   MilestoneDetailsModel,
-  MilestonModel,
+  MilestonModel
 } from "../../types/milestones/milestones";
 import { getErrorMessage } from "../../utils/actionErrorsUtils";
+import { API_ACTIONS } from "../actions/apiActions";
 
 export interface MilestoneReducerType {
   milestones: ApiPagedResponse<MilestoneDetailsModel>;

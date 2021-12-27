@@ -1,53 +1,54 @@
-import React from "react";
-import { ThemeProvider, DefaultTheme } from "styled-components";
-import usePeristedState from "./utils/usePersistedState";
-import { Provider, connect } from "react-redux";
-import light from "./styles/themes/light";
-import dark from "./styles/themes/dark";
+import { createTheme, responsiveFontSizes, ThemeProvider } from "@material-ui/core";
+import React, { useState } from "react";
 import { DndProvider } from "react-dnd";
-import GlobalStyle from "./styles/global";
-import Header from "./components/header";
-import Sidebar from "./components/sidebar/sidebar";
-import { Switch, Route, Router } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import Reports from "./pages/reports/reports";
-import Settings from "./pages/settings/setting";
-import MyWork from "./pages/myTasks";
-import KanbanBoard from "./pages/boards/kanbanBoard";
-import Calendar from "./pages/calendar";
+import { Provider } from "react-redux";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Header from "./components/header";
 import HeroSection from "./components/hero";
-import Login from "./pages/auth/loginForm";
-import Register from "./pages/auth/register";
+import AuthRoute from "./components/routes/authRoute";
 import EmailConfirmation from "./pages/auth/emailConfirmation";
 import EmailConfirmationRedirect from "./pages/auth/emailConfirmRedirect";
 import ForgotPasswordForm from "./pages/auth/forgotPassword";
-import IssueForm from "./pages/issues/issuesForm";
-import ProjectForm from "./pages/projects/projectForm";
-import ProjectsTable from "./pages/projects/projectsDataGrid";
-import MilestoneForm from "./pages/milestones/milestonesForm";
-import IssuesGrid from "./pages/issues/userIssuesList";
+import Login from "./pages/auth/loginForm";
+import Register from "./pages/auth/register";
+import KanbanBoard from "./pages/boards/kanbanBoard";
+import TeamBoard from "./pages/boards/teamBoard";
+import Calendar from "./pages/calendar";
 import IssueDetailedCard from "./pages/issues/issueDetails";
+import IssueForm from "./pages/issues/issuesForm";
+import IssuesGrid from "./pages/issues/userIssuesList";
+import MilestonesDGGrid from "./pages/milestones/milestoneDataGrid";
+import MilestoneForm from "./pages/milestones/milestonesForm";
+import MyWork from "./pages/myTasks";
+import ProjectForm from "./pages/projects/projectForm";
+import { default as ProjectsDataGrid, default as ProjectsTable } from "./pages/projects/projectsDataGrid";
+import GanttReport from "./pages/reports/ganttReport";
 import ReportCard from "./pages/reports/reportCard";
-import store from "./store";
+import Reports from "./pages/reports/reports";
+import Settings from "./pages/settings/setting";
+import NotFoundPage from "./pages/statuses/notFoundPage";
+import RestrictedAccessPage from "./pages/statuses/restrictedAccessPage";
 import TeamForm from "./pages/teams/teamForm";
 import TeamDataGrid from "./pages/teams/teamsDataGrid";
-import ProjectsDataGrid from "./pages/projects/projectsDataGrid";
-import MilestonesDGGrid from "./pages/milestones/milestoneDataGrid";
-import AppUserDataGrid from "./pages/users/appUsersDataGrid";
 import AppUserAccountDGTable from "./pages/users/accountUserDataGrid";
-import AuthRoute from "./components/routes/authRoute";
-import NotFoundPage from "./pages/statuses/notFoundPage";
+import AppUserDataGrid from "./pages/users/appUsersDataGrid";
 import WorkLogDataGrid from "./pages/worklog/workLogDataGrig";
-import RestrictedAccessPage from "./pages/statuses/restrictedAccessPage";
-import { getBoardType, isUserLoggedIn } from "./utils/jwtUtils";
-import GanttReport from "./pages/reports/ganttReport";
-import TeamBoard from "./pages/boards/teamBoard";
+import store from "./store";
+import themeOptions from "./styles/themes/theme";
+import { getBoardType, getTheme, isUserLoggedIn, resetTheme } from "./utils/jwtUtils";
 const App = () => {
-  const [theme, setTheme] = usePeristedState<DefaultTheme>("theme", light);
+  const [mode,setMode] = useState(getTheme()===null?"light":getTheme());
+  let theme = themeOptions(mode);
 
   const toggleTheme = () => {
-    setTheme(theme.title === "light" ? dark : light);
+     if(mode=== "light"){
+      setMode("dark");
+      resetTheme("dark");
+     }else{
+      setMode("light");
+      resetTheme("dark");
+     };
   };
 
   const getBoardComponent = (): any => {
@@ -61,11 +62,10 @@ const App = () => {
   return (
     <Provider store={store}>
       <DndProvider backend={HTML5Backend}>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={responsiveFontSizes(createTheme(themeOptions(mode)))}>
           <BrowserRouter forceRefresh={true}>
-            {isLogedIn && <Header toggleTheme={toggleTheme} />}
+             <Header toggleTheme={toggleTheme} mode = {mode} />
             <div className="App">
-              <GlobalStyle />
               <Switch>
                 <Route path="/" exact component={HeroSection} />
                 <AuthRoute path="/home" exact component={getBoardComponent()} />
@@ -111,3 +111,7 @@ const App = () => {
 };
 
 export default App;
+function setTheme(arg0: { title: string; colors: { primary: string; secondary: string; header: string; background: string; text: string; }; }) {
+  throw new Error("Function not implemented.");
+}
+

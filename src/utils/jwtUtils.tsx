@@ -1,5 +1,3 @@
-import { Reducer } from "redux";
-import jwt from "jwt-decode";
 export const getExpirationDate = (jwtToken?: string): number | null => {
   if (!jwtToken) {
     return null;
@@ -50,6 +48,15 @@ export const resetBoardTypeToSettings = (boardType: string) => {
 export const getBoardType = () :string=> {
   console.log("boardType", localStorage.getItem("BOARD_TYPE"));
   return localStorage.getItem("BOARD_TYPE")??"";
+};
+
+export const resetTheme = (theme: string) => {
+  localStorage.removeItem("THEME");
+  localStorage.setItem("THEME", theme);
+};
+export const getTheme = () :string=> {
+  console.log("them", localStorage.getItem("THEME"));
+  return localStorage.getItem("THEME")??"";
 };
 
 export const isUserLoggedIn = () => {

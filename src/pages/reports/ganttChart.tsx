@@ -1,11 +1,11 @@
-import React, { Dispatch, useEffect } from 'react'
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts/highcharts-gantt';
-import { RootState } from '../../store';
-import CircularUnderLoad from '../../components/loader/circularLoader';
+import React, { Dispatch, useEffect } from 'react';
 import { connect } from "react-redux";
+import CircularUnderLoad from '../../components/loader/circularLoader';
+import { RootState } from '../../store';
+import { ApiPagedResponse } from '../../types/api/apiResponses';
 import { IssueDetailedModel } from '../../types/issues/isues';
-import { ApiPagedResponse, ApiResponse } from '../../types/api/apiResponses';
 
 type GanttChartDataProps =  ReturnType<typeof mapStateToProps> &
 ReturnType<typeof mapDispatchToProps> &{

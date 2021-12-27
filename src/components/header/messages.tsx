@@ -1,7 +1,7 @@
 import { IconButton } from '@material-ui/core'
-import React from 'react'
 import Badge from '@material-ui/core/Badge'
 import MailIcon from '@material-ui/icons/Mail'
+import React from 'react'
 
 const Messages= () => {
     return (

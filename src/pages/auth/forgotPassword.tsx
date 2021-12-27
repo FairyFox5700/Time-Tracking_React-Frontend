@@ -1,24 +1,19 @@
-import React, { Dispatch, useState } from "react";
-import { Link } from "react-router-dom";
 import {
-  Grid,
-  Typography,
-  createStyles,
-  Theme,
-  makeStyles,
+  createStyles, Grid, makeStyles, Theme, Typography
 } from "@material-ui/core";
-import { Formik, FormikProps, Form } from "formik";
+import Divider from "@material-ui/core/Divider";
+import Alert from "@material-ui/lab/Alert";
+import { Form, Formik, FormikProps } from "formik";
+import React, { Dispatch } from "react";
+import { connect } from "react-redux";
 import * as Yup from "yup";
-import { ForgotPasswordRequest } from "../../types/auth/auth";
+import { apiUrls } from "../../api/clients/config";
+import FormHeader from "../../components/controls/formHeader";
 import SubmitButton from "../../components/controls/submitButton";
 import TextInput from "../../components/controls/textInput";
-import FormHeader from "../../components/controls/formHeader";
 import { forgotPassword } from "../../redux/actions/auth/authActions";
-import Alert from "@material-ui/lab/Alert";
 import { RootState } from "../../store";
-import { connect } from "react-redux";
-import Divider from "@material-ui/core/Divider";
-import { apiUrls } from "../../api/clients/config";
+import { ForgotPasswordRequest } from "../../types/auth/auth";
 
 type ForgotPasswordProps = ReturnType<typeof mapStateToProps> &
   ReturnType<typeof mapDispatchToProps> & {

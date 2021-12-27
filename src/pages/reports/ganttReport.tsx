@@ -1,9 +1,8 @@
-import AssessmentIcon from '@material-ui/icons/Assessment';
 import {
-  Grid,
-  makeStyles,
-  Container,
+  Container, Grid,
+  makeStyles
 } from "@material-ui/core";
+import AssessmentIcon from '@material-ui/icons/Assessment';
 import MyStockChart from "./ganttChart";
 import GanttReportForm from "./ganttChartFrom";
 

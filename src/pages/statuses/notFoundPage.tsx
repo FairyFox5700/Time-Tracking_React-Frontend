@@ -1,6 +1,6 @@
 import React from "react";
-
 import "./accessRestictedStyles.css";
+
 const NotFoundPage = () => {
   return (
     <div>

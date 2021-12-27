@@ -1,5 +1,5 @@
 import axios from "axios";
-import {apiUrls} from "./config"
+import { apiUrls } from "./config";
 let axiosConfig = {
   headers: {
     "Content-Type": "application/json;charset=UTF-8",

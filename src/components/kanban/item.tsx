@@ -1,13 +1,13 @@
-import React, { Fragment, useState, useRef } from "react";
-import { useDrag, useDrop } from "react-dnd";
-import Window from "./window";
-import { ITEM_TYPE } from "../../data/constants";
 import { createStyles, makeStyles, Theme } from "@material-ui/core";
+import Badge from "@material-ui/core/Badge";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import TurnedInNotIcon from "@material-ui/icons/TurnedInNot";
-import Badge from "@material-ui/core/Badge";
+import React, { Fragment, useRef, useState } from "react";
+import { useDrag, useDrop } from "react-dnd";
+import { ITEM_TYPE } from "../../data/constants";
 import AvatarItem from "./avatar";
+import Window from "./window";
 
 export interface ItemProps {
   index: any;
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
     card: {
       borderRadius: "5px",
       border: " 1px dashed white",
-      backgroundColor: "white",
+      backgroundColor: theme.palette.background.default,
       minWidth: "350px",
       height: "auto",
       marginBottom: "8px",

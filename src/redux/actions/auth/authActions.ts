@@ -11,7 +11,7 @@ import {
   RegistrationRequest,
   ResendEmailConfirmationRequest,
   ResetPasswordRequest,
-  RevokeTokenRequest,
+  RevokeTokenRequest
 } from "../../../types/auth/auth";
 import {
   EmailConfirmationFailedActionType,
@@ -29,12 +29,10 @@ import {
   ResetPasswordFailedActionType,
   ResetPasswordSuccessActionType,
   RevokeTokenFailedActionType,
-  RevokeTokenSuccessActionType,
+  RevokeTokenSuccessActionType
 } from "../../../types/auth/authActions";
-import { ThunkResult } from "../issuesActions";
-import { ThunkAction, ThunkDispatch } from "redux-thunk";
-import { RootState } from "../../../store";
 import { RemoveAccessToken, RemoveRefreshToken } from "../../../utils/jwtUtils";
+import { ThunkResult } from "../issuesActions";
 //login request
 export const loginRequest =
   (request: LoginRequest): ThunkResult<void> =>

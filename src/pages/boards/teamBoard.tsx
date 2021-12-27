@@ -1,19 +1,16 @@
-import { statuses, TeamBoardStatuses, teamBoardStatuses } from "../../data/boardData";
-import "../../components/kanban/kanban.css";
+import { Alert } from "@material-ui/lab";
+import React, { Dispatch, useEffect } from "react";
+import { connect } from "react-redux";
 import SimpleAccordion from "../../components/kanban/accordion";
+import "../../components/kanban/kanban.css";
+import KanbanColumn from "../../components/kanban/kanbanColumn";
+import TeamItem from "../../components/kanban/teamBoardItem";
+import CircularUnderLoad from "../../components/loader/circularLoader";
+import { statuses, teamBoardStatuses } from "../../data/boardData";
+import { changeIssueStatus, fetchIssues } from "../../redux/actions/issuesActions";
 import { RootState } from "../../store";
 import { PagedRequest } from "../../types/api/apiRequests";
-import { connect } from "react-redux";
-import { changeIssueStatus, fetchIssues } from "../../redux/actions/issuesActions";
-import React, { Dispatch, useEffect } from "react";
 import { ChangeIssueStatusRequest } from "../../types/issues/isues";
-import CircularUnderLoad from "../../components/loader/circularLoader";
-import KanbanItem from "../../components/kanban/draggableItem";
-import KanbanColumn from "../../components/kanban/kanbanColumn";
-import { Alert } from "@material-ui/lab";
-import { Accordion, Collapse, List, ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
-import { ExpandLess, ExpandMore } from "@material-ui/icons";
-import TeamItem from "../../components/kanban/teamBoardItem";
 
 type TeamBoardProps = ReturnType<typeof mapStateToProps> &
     ReturnType<typeof mapDispatchToProps> & {
@@ -54,11 +51,6 @@ const TeamBoard: React.FC<TeamBoardProps> = ({
     } else {
         let boardStatuses = statuses(issues.data);
         let teamBoardStatusesArray = teamBoardStatuses(boardStatuses);
-        console.log(issues.data);
-        console.log(boardStatuses);
-        console.log(teamBoardStatusesArray);
-        console.log("kehys:");
-        console.log("kehys:"+ (Object.keys(teamBoardStatusesArray[1].data) as Array<string>));
 
         const chnagesIssueStatus = (issueId: string, status: string) => {
             let request: ChangeIssueStatusRequest = {

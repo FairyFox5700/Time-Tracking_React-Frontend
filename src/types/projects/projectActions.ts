@@ -1,12 +1,10 @@
-import {
-  CREATE_PROJECT,
-  GET_ALL_PROJETCS_ASYNC,
-  FETCH_PROJECT_BY_ID,
-} from "../../redux/constants/project";
-
-import { ProjectDetailsModel, ProjectModel } from "./project";
-import { ApiPagedResponse, ApiResponse } from "../api/apiResponses";
 import { API_ACTIONS } from "../../redux/actions/apiActions";
+import {
+  CREATE_PROJECT, FETCH_PROJECT_BY_ID, GET_ALL_PROJETCS_ASYNC
+} from "../../redux/constants/project";
+import { ApiPagedResponse, ApiResponse } from "../api/apiResponses";
+import { ProjectDetailsModel, ProjectModel } from "./project";
+
 
 export interface FetchAllProjectsRequestActionType {
   type: `${API_ACTIONS.FETCH_START}${typeof GET_ALL_PROJETCS_ASYNC}`;

@@ -1,27 +1,27 @@
+import { createStyles, Grid, makeStyles, Theme } from "@material-ui/core";
+import Alert from "@material-ui/lab/Alert";
+import { Form, Formik, FormikProps } from "formik";
 import React, { Dispatch, useEffect, useState } from "react";
-import { Grid, createStyles, makeStyles, Theme } from "@material-ui/core";
-import { Formik, FormikProps, Form } from "formik";
+import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 import * as Yup from "yup";
-import SubmitButton from "../../components/controls/submitButton";
-import TextInput from "../../components/controls/textInput";
 import FormHeader from "../../components/controls/formHeader";
 import SelectInput from "../../components/controls/selectInput";
-import { IssueModel, Status } from "../../types/issues/isues";
-import { ToArray } from "../../utils/enumUtils";
-import { fetchAllUsers } from "../../redux/actions/usersActions";
-import Alert from "@material-ui/lab/Alert";
-import { RootState } from "../../store";
-import { connect } from "react-redux";
-import { PagedRequest } from "../../types/api/apiRequests";
-import { createIssue } from "../../redux/actions/issuesActions";
-import { ApiPagedResponse } from "../../types/api/apiResponses";
-import { UserDetailsModel } from "../../types/users/users";
+import SubmitButton from "../../components/controls/submitButton";
+import TextInput from "../../components/controls/textInput";
 import CircularUnderLoad from "../../components/loader/circularLoader";
-import { Link, Redirect, useHistory } from "react-router-dom";
-import { ProjectDetailsModel } from "../../types/projects/project";
-import { MilestoneDetailsModel } from "../../types/milestones/milestones";
-import { fetchProjects } from "../../redux/actions/projectsActions";
+import { createIssue } from "../../redux/actions/issuesActions";
 import { fetchMilestones } from "../../redux/actions/milestonesActions";
+import { fetchProjects } from "../../redux/actions/projectsActions";
+import { fetchAllUsers } from "../../redux/actions/usersActions";
+import { RootState } from "../../store";
+import { PagedRequest } from "../../types/api/apiRequests";
+import { ApiPagedResponse } from "../../types/api/apiResponses";
+import { IssueModel, Status } from "../../types/issues/isues";
+import { MilestoneDetailsModel } from "../../types/milestones/milestones";
+import { ProjectDetailsModel } from "../../types/projects/project";
+import { UserDetailsModel } from "../../types/users/users";
+import { ToArray } from "../../utils/enumUtils";
 
 type IssueProps = ReturnType<typeof mapStateToProps> &
   ReturnType<typeof mapDispatchToProps> & {
@@ -197,6 +197,7 @@ const IssueForm: React.FC<IssueProps> = ({
                     error={false}
                   ></SelectInput>
                 </Grid>
+                <Grid item xs={10}>
                 <SelectInput
                   name="assignedToUserId"
                   label="Select assignee"
@@ -214,8 +215,10 @@ const IssueForm: React.FC<IssueProps> = ({
                   }
                   options={users.data}
                 ></SelectInput>
+                </Grid>
                 {console.log("users", users.data)}
-                <SelectInput
+                <Grid item xs={10}>
+                  <SelectInput
                   name="reportedByUserId"
                   label="Select reporter"
                   value={values.reportedByUserId}
@@ -232,7 +235,9 @@ const IssueForm: React.FC<IssueProps> = ({
                   }
                   options={users.data}
                 ></SelectInput>
-                <SelectInput
+                </Grid>
+                <Grid item xs={10}>
+                  <SelectInput
                   name="milestoneId"
                   label="Select milestone"
                   value={values.milestoneId}
@@ -243,6 +248,8 @@ const IssueForm: React.FC<IssueProps> = ({
                   options={milestones.data}
                   error={false}
                 ></SelectInput>
+                </Grid>
+                <Grid item xs={10}>
                 <SelectInput
                   name="projectId"
                   label="Select project"
@@ -254,6 +261,7 @@ const IssueForm: React.FC<IssueProps> = ({
                   options={projects.data}
                   error={false}
                 ></SelectInput>
+                </Grid>
                 <Grid item lg={6} md={6} sm={6} xs={6}>
                   <SubmitButton
                     children={isLoading ? "Loading" : "Create issue"}

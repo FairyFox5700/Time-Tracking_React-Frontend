@@ -1,17 +1,17 @@
-import React from "react";
-import clsx from "clsx";
+import IconButton from "@material-ui/core/IconButton";
 import {
   createStyles,
   lighten,
   makeStyles,
-  Theme,
+  Theme
 } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
+import Typography from "@material-ui/core/Typography";
 import DeleteIcon from "@material-ui/icons/Delete";
 import FilterListIcon from "@material-ui/icons/FilterList";
+import clsx from "clsx";
+import React from "react";
 
 const useToolbarStyles = makeStyles((theme: Theme) =>
   createStyles({

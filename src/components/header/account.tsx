@@ -1,55 +1,63 @@
+import { createStyles, Fade, makeStyles, Popper, Theme } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
-import { AccountCircle } from "@material-ui/icons";
-import React from "react";
 import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
-import { RemoveAccessToken, RemoveRefreshToken } from "../../utils/jwtUtils";
+import { AccountCircle } from "@material-ui/icons";
+import PopupState, { bindPopper, bindToggle } from 'material-ui-popup-state';
+import React from "react";
 import { useHistory } from "react-router-dom";
+import { RemoveAccessToken, RemoveRefreshToken } from "../../utils/jwtUtils";
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    typography: {
+      padding: theme.spacing(2),
+    },
+    root: {
+      width: "100%",
+      maxWidth: 460,
+      backgroundColor: theme.palette.primary.main,
+    },
+  })
+);
 
 const AccountItem = () => {
   const menuId = "primary-search-account-menu";
-  const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
 
   const history = useHistory();
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const handleMenuClose = () => {
-    setAnchorEl(null);
     RemoveRefreshToken();
     RemoveAccessToken();
     history.push("/login");
   };
-  const isMenuOpen = Boolean(anchorEl);
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "right" }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
-    </Menu>
-  );
+ const classes = useStyles();
   return (
-    <>
-      <MenuItem onClick={handleProfileMenuOpen}>
+    <PopupState variant="popper" popupId="demo-popup-popper">
+    {(popupState) => (
+      <div>
         <IconButton
           edge="end"
           aria-label="account of current user"
           aria-controls={menuId}
-          aria-haspopup="true"
           className="avatar_icon"
+          {...bindToggle(popupState)}
           color="inherit"
         >
           <AccountCircle />
         </IconButton>
-      </MenuItem>
-      {renderMenu}
-    </>
+        <Popper {...bindPopper(popupState)} transition>
+            {({ TransitionProps }) => (
+              <Fade {...TransitionProps} timeout={350}>
+        <div className={classes.root}>
+        <MenuItem onClick={handleMenuClose}>
+        Logout
+        </MenuItem>
+        </div>
+        </Fade>
+            )}
+          </Popper>
+        </div>
+      )}
+    </PopupState>
   );
 };
 

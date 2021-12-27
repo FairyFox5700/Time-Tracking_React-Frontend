@@ -1,12 +1,12 @@
 import { Reducer } from "redux";
-import { ApiResponse, ApiPagedResponse } from "../../types/api/apiResponses";
+import { ApiPagedResponse, ApiResponse } from "../../types/api/apiResponses";
 import { TeamDetailsModel, TeamModel } from "../../types/teams/teams";
 import { getErrorMessage } from "../../utils/actionErrorsUtils";
 import { API_ACTIONS } from "../actions/apiActions";
 import {
   CREATE_TEAM,
   FETCH_TEAM_BY_ID,
-  GET_ALL_TEAMS_ASYNC,
+  GET_ALL_TEAMS_ASYNC
 } from "../constants/teams";
 
 export interface TeamsReducerType {

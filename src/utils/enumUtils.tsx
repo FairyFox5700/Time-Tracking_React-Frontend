@@ -1,4 +1,3 @@
-import { Reducer } from "redux";
 const StringIsNumber = (value: any) => isNaN(Number(value)) === false;
 
 export function ToArray(enumme: any) {

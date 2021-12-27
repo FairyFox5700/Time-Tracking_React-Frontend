@@ -1,15 +1,14 @@
-import React, { Dispatch, useState } from "react";
-import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
-import Popover from "@material-ui/core/Popover";
 import Button from "@material-ui/core/Button";
+import Popover from "@material-ui/core/Popover";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import React, { Dispatch, useState } from "react";
+import { connect } from "react-redux";
+import { updateStatusWorklog } from "../../redux/actions/workLogsActions";
 import {
   UpdateWorkLogStatusRequest,
-  WorkLogModel,
+  WorkLogModel
 } from "../../types/worklogs/worklogs";
-import { updateStatusWorklog } from "../../redux/actions/workLogsActions";
-import { connect } from "react-redux";
 import WorklogDescriptionForm from "./worklogDexscriptionForm";
-import { ValueSource } from "react-avatar";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     typography: {

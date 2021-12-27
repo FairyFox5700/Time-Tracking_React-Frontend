@@ -1,22 +1,17 @@
-import {
-  FetchAllTeamsRequestActionType,
-  FetchAllTeamsSuccessActionType,
-  FetchAllTeamsFailedActionType,
-  CreateTeamSuccessActionType,
-  CreateTeamFailedActionType,
-  FetchTeamByIdSuccessActionType,
-  FetchTeamByIdFailedActionType,
-  FetchTeamByIdRequestActionType,
-} from "../../types/teams/teamActions";
-
-import { PagedRequest } from "../../types/api/apiRequests";
-import { TeamModel, TeamDetailsModel } from "../../types/teams/teams";
 import { AxiosResponse } from "axios";
-import { ProjectDetailsModel } from "../../types/projects/project";
-import { ApiPagedResponse, ApiResponse } from "../../types/api/apiResponses";
-import client from "../../api/clients/client";
 import { Dispatch } from "react";
+import client from "../../api/clients/client";
+import { PagedRequest } from "../../types/api/apiRequests";
+import { ApiPagedResponse, ApiResponse } from "../../types/api/apiResponses";
+import { ProjectDetailsModel } from "../../types/projects/project";
+import {
+  CreateTeamFailedActionType, CreateTeamSuccessActionType, FetchAllTeamsFailedActionType, FetchAllTeamsRequestActionType,
+  FetchAllTeamsSuccessActionType, FetchTeamByIdFailedActionType,
+  FetchTeamByIdRequestActionType, FetchTeamByIdSuccessActionType
+} from "../../types/teams/teamActions";
+import { TeamDetailsModel, TeamModel } from "../../types/teams/teams";
 import { ThunkResult } from "./issuesActions";
+
 
 //get all teams
 export const fetchAllTeams = (

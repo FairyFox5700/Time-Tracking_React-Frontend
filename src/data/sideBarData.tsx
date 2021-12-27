@@ -1,12 +1,12 @@
 import AssessmentIcon from "@material-ui/icons/Assessment";
-import DeveloperBoardIcon from "@material-ui/icons/DeveloperBoard";
-import ScheduleIcon from "@material-ui/icons/Schedule";
-import ViewListIcon from "@material-ui/icons/ViewList";
-import SettingsIcon from "@material-ui/icons/Settings";
-import { SidebarItem } from "../types/SidebarItem";
-import SpeedIcon from "@material-ui/icons/Speed";
-import GroupIcon from "@material-ui/icons/Group";
 import ClassIcon from "@material-ui/icons/Class";
+import DeveloperBoardIcon from "@material-ui/icons/DeveloperBoard";
+import GroupIcon from "@material-ui/icons/Group";
+import ScheduleIcon from "@material-ui/icons/Schedule";
+import SettingsIcon from "@material-ui/icons/Settings";
+import SpeedIcon from "@material-ui/icons/Speed";
+import ViewListIcon from "@material-ui/icons/ViewList";
+import { SidebarItem } from "../types/SidebarItem";
 import { isUserEngineer } from "../utils/jwtUtils";
 
 const sidebar: Array<SidebarItem> = [

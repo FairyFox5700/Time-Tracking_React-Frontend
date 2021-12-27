@@ -1,23 +1,20 @@
-import React, { Dispatch, useEffect, useState } from "react";
-import { Link, Redirect, useHistory, useLocation } from "react-router-dom";
 import {
-  Grid,
-  Typography,
-  createStyles,
-  makeStyles,
-  Theme,
+  createStyles, Grid, makeStyles,
+  Theme, Typography
 } from "@material-ui/core";
-import { Formik, FormikProps, Form } from "formik";
+import Alert from "@material-ui/lab/Alert";
+import { Form, Formik, FormikProps } from "formik";
+import React, { Dispatch, useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 import * as Yup from "yup";
-import { LoginRequest } from "../../types/auth/auth";
+import FormHeader from "../../components/controls/formHeader";
 import SubmitButton from "../../components/controls/submitButton";
 import TextInput from "../../components/controls/textInput";
-import FormHeader from "../../components/controls/formHeader";
-import { loginRequest } from "../../redux/actions/auth/authActions";
-import Alert from "@material-ui/lab/Alert";
-import { RootState } from "../../store";
-import { connect } from "react-redux";
 import FormPopupDialog from "../../components/popup/formPopup";
+import { loginRequest } from "../../redux/actions/auth/authActions";
+import { RootState } from "../../store";
+import { LoginRequest } from "../../types/auth/auth";
 import { isUserLoggedIn } from "../../utils/jwtUtils";
 
 type LoginProps = ReturnType<typeof mapStateToProps> &
@@ -93,6 +90,9 @@ const Login: React.FC<LoginProps> = ({
     actions.resetForm();
     actions.setSubmitting(false);
   };
+  const onClose = () =>{
+    history.push("/home");
+  };
 
   const [openPopup, setOpenPopup] = useState(true);
   return (
@@ -100,6 +100,7 @@ const Login: React.FC<LoginProps> = ({
       title="Sign up"
       openPopup={openPopup}
       setOpenPopup={setOpenPopup}
+      onClose={onClose}
     >
       <Grid className={classes.root}>
         <Formik

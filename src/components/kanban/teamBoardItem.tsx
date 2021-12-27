@@ -1,8 +1,7 @@
-import React, { useRef } from "react";
-import { ListItem, ListItemIcon, ListItemText, Collapse, List, GridList, Grid } from "@material-ui/core";
-import { ExpandLess, ExpandMore } from "@material-ui/icons";
-import KanbanItem from "./draggableItem";
+import { Collapse, Grid, List, ListItem, ListItemText } from "@material-ui/core";
+import React from "react";
 import { TeamBoardStatuses } from "../../data/boardData";
+import KanbanItem from "./draggableItem";
 
 export interface TeamBoardItemProps {
   groupKey: string;
@@ -19,8 +18,7 @@ const TeamItem: React.FC<TeamBoardItemProps> = ({
     const [open, setOpen] = React.useState(true);
 
     const handleClick = () => {
-        console.log("sta"+statuses.data);
-        console.log("key"+groupKey);
+        console.log("open"+!open);
       setOpen(!open);
     };
 
@@ -37,14 +35,10 @@ const TeamItem: React.FC<TeamBoardItemProps> = ({
 
   return (
   <Grid key = {id} item>
-      <ListItem key = {id} button onClick={handleClick}>
-          <ListItemIcon>
-              <ExpandLess />
-          </ListItemIcon>
+      <ListItem  button>
           <ListItemText primary={getFullName(groupKey)} />
-          {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit>
+      <Collapse in={open}>
               {statuses.data[groupKey]?.map((iss, idx) => (
                   <List component="div" disablePadding>
                       <KanbanItem

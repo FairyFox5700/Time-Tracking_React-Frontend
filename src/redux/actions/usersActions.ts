@@ -1,28 +1,23 @@
-import {
-  FetchAllUsersRequestActionType,
-  FetchAllUsersSuccessActionType,
-  FetchAllUsersFailedActionType,
-  AddUserToTeamSuccessActionType,
-  AddUserToTeamFailedActionType,
-  FetchUserByIdRequestActionType,
-  FetchUserByIdSuccessActionType,
-  FetchUserByIdFailedActionType,
-} from "../../types/users/userAction";
-
-import {
-  AddUserToTeamRequest,
-  UserDetailsModel,
-} from "../../types/users/users";
 import { AxiosResponse } from "axios";
+import { Dispatch } from "react";
 import client from "../../api/clients/client";
-import { ThunkResult } from "./issuesActions";
 import { PagedRequest } from "../../types/api/apiRequests";
 import {
   ApiEmptyResponse,
   ApiPagedResponse,
-  ApiResponse,
+  ApiResponse
 } from "../../types/api/apiResponses";
-import { Dispatch } from "react";
+import {
+  AddUserToTeamFailedActionType, AddUserToTeamSuccessActionType, FetchAllUsersFailedActionType, FetchAllUsersRequestActionType,
+  FetchAllUsersSuccessActionType, FetchUserByIdFailedActionType, FetchUserByIdRequestActionType,
+  FetchUserByIdSuccessActionType
+} from "../../types/users/userAction";
+import {
+  AddUserToTeamRequest,
+  UserDetailsModel
+} from "../../types/users/users";
+import { ThunkResult } from "./issuesActions";
+
 
 //fetch all users
 export const fetchAllUsers =

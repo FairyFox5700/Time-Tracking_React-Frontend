@@ -1,6 +1,6 @@
-import React from "react";
-import { Eventcalendar, MbscCalendarEvent, MbscEventcalendarView, toast,  localeEn } from "@mobiscroll/react";
+import { Eventcalendar, localeEn, MbscCalendarEvent, MbscEventcalendarView, toast } from "@mobiscroll/react";
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
+import React from "react";
 import client from "../api/clients/client";
 import { apiUrls } from "../api/clients/config";
 import { IssueDetailedModel } from "../types/issues/isues";

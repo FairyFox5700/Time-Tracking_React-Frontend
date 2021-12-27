@@ -1,24 +1,17 @@
-import {
-  FetchMilestoneByIdFailedActionType,
-  FetchAllMilestonesSuccessActionType,
-  FetchAllMilestonesRequestActionType,
-  FetchAllMilestonesFailedActionType,
-  FetchMilestoneByIdRequestActionType,
-  FetchMilestoneByIdSuccessActionType,
-  CreateMilestoneSuccessActionType,
-  CreateMilestoneFailedActionType,
-} from "../../types/milestones/milestoneActions";
-
+import { AxiosResponse } from "axios";
+import { Dispatch } from "react";
+import client from "../../api/clients/client";
 import { PagedRequest } from "../../types/api/apiRequests";
+import { ApiPagedResponse, ApiResponse } from "../../types/api/apiResponses";
 import {
-  MilestonModel,
-  MilestoneDetailsModel,
+  CreateMilestoneFailedActionType, CreateMilestoneSuccessActionType, FetchAllMilestonesFailedActionType, FetchAllMilestonesRequestActionType, FetchAllMilestonesSuccessActionType, FetchMilestoneByIdFailedActionType, FetchMilestoneByIdRequestActionType,
+  FetchMilestoneByIdSuccessActionType
+} from "../../types/milestones/milestoneActions";
+import {
+  MilestoneDetailsModel, MilestonModel
 } from "../../types/milestones/milestones";
 import { ThunkResult } from "./issuesActions";
-import { AxiosResponse } from "axios";
-import client from "../../api/clients/client";
-import { Dispatch } from "react";
-import { ApiPagedResponse, ApiResponse } from "../../types/api/apiResponses";
+
 
 //all milestones
 export const fetchMilestones = (

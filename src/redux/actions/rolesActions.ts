@@ -1,13 +1,13 @@
+import { AxiosResponse } from "axios";
+import { Dispatch } from "react";
+import client from "../../api/clients/authClinet";
+import { ApiEmptyResponse } from "../../types/api/apiResponses";
 import {
   AddToRoleFailedActionType,
-  AddToRoleSuccessActionType,
+  AddToRoleSuccessActionType
 } from "../../types/roles/roleActions";
 import { AddToRoleRequest } from "../../types/roles/roles";
-import { Dispatch } from "react";
 import { ThunkResult } from "./issuesActions";
-import { AxiosResponse } from "axios";
-import { ApiEmptyResponse } from "../../types/api/apiResponses";
-import client from "../../api/clients/authClinet";
 
 //add to role
 export const addToRole = (

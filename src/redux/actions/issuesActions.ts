@@ -1,11 +1,10 @@
-import {
-  AssignIssueToUserRequest,
-  ChangeIssueStatusRequest,
-  IssueDetailedModel,
-  IssueFilteringRequest,
-  IssueModel,
-} from "../../types/issues/isues";
-
+import { AxiosResponse } from "axios";
+import { Dispatch } from "react";
+import { ThunkAction } from "redux-thunk";
+import client from "../../api/clients/client";
+import { RootActions, RootState } from "../../store";
+import { PagedRequest } from "../../types/api/apiRequests";
+import { ApiPagedResponse, ApiResponse } from "../../types/api/apiResponses";
 import {
   AssignIssuesFailureActionType,
   AssignIssuesSucessActionType,
@@ -21,16 +20,17 @@ import {
   FetchIssueByIdRequestActionType,
   FetchIssueByIdSucessActionType,
   FetchIssuesFailedActionType,
-  FetchIssuesFilteredFailedActionType,
+  FetchIssuesFilteredFailedActionType
 } from "../../types/issues/issesActions";
+import {
+  AssignIssueToUserRequest,
+  ChangeIssueStatusRequest,
+  IssueDetailedModel,
+  IssueFilteringRequest,
+  IssueModel
+} from "../../types/issues/isues";
 
-import { PagedRequest } from "../../types/api/apiRequests";
-import { ThunkAction } from "redux-thunk";
-import { AxiosResponse } from "axios";
-import client from "../../api/clients/client";
-import { RootActions, RootState } from "../../store";
-import { ApiPagedResponse, ApiResponse } from "../../types/api/apiResponses";
-import { Dispatch } from "react";
+
 export type ThunkResult<R> = ThunkAction<R, RootState, undefined, RootActions>;
 
 //get all issues

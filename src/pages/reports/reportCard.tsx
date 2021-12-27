@@ -1,14 +1,14 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import InsertChartIcon from "@material-ui/icons/InsertChart";
+import React from "react";
+import { Link } from "react-router-dom";
+import { ReportInfo, reportLinkTypeMapping, ReportType } from "../../types/report/report";
 import { WorkLogDetails } from "../../types/worklogs/worklogs";
 import { ToArray } from "../../utils/enumUtils";
-import { ReportInfo, reportLinkTypeMapping, ReportType } from "../../types/report/report";
-import InsertChartIcon from "@material-ui/icons/InsertChart";
-import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   barroot : {

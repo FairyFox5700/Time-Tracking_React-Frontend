@@ -1,32 +1,22 @@
-import React, { Dispatch, useEffect, useState } from "react";
-import { Link, Redirect, useLocation } from "react-router-dom";
 import {
-  Grid,
-  Typography,
-  createStyles,
-  Theme,
-  makeStyles,
+  createStyles, Grid, makeStyles, Theme, Typography
 } from "@material-ui/core";
-import { Formik, FormikProps, Form } from "formik";
+import Alert from "@material-ui/lab/Alert";
+import { Form, Formik, FormikProps } from "formik";
+import React, { Dispatch } from "react";
+import { connect } from "react-redux";
+import { Redirect, useLocation } from "react-router-dom";
 import * as Yup from "yup";
-import {
-  EmailConfirmationRequest,
-  ResendEmailConfirmationRequest,
-  ResetPasswordRequest,
-} from "../../types/auth/auth";
+import FormHeader from "../../components/controls/formHeader";
 import SubmitButton from "../../components/controls/submitButton";
 import TextInput from "../../components/controls/textInput";
-import FormHeader from "../../components/controls/formHeader";
 import {
-  confirmEmail,
-  handleResetPasswordFail,
-  resendVerificationEmail,
-  resetPassword,
+  resetPassword
 } from "../../redux/actions/auth/authActions";
-import Alert from "@material-ui/lab/Alert";
 import { RootState } from "../../store";
-import { connect } from "react-redux";
-import Divider from "@material-ui/core/Divider";
+import {
+  ResetPasswordRequest
+} from "../../types/auth/auth";
 
 type ResetPasswordProps = ReturnType<typeof mapStateToProps> &
   ReturnType<typeof mapDispatchToProps> & {

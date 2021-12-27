@@ -1,24 +1,21 @@
-import React, { Dispatch, useState } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
 import {
-  Grid,
-  Typography,
-  createStyles,
-  makeStyles,
-  Theme,
+  createStyles, Grid, makeStyles,
+  Theme, Typography
 } from "@material-ui/core";
-import { Formik, FormikProps, Form } from "formik";
+import Alert from "@material-ui/lab/Alert";
+import { Form, Formik, FormikProps } from "formik";
+import React, { Dispatch, useState } from "react";
+import { connect } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 import * as Yup from "yup";
-import { RegistrationRequest } from "../../types/auth/auth";
+import { apiUrls } from "../../api/clients/config";
+import FormHeader from "../../components/controls/formHeader";
 import SubmitButton from "../../components/controls/submitButton";
 import TextInput from "../../components/controls/textInput";
-import FormHeader from "../../components/controls/formHeader";
-import { registration } from "../../redux/actions/auth/authActions";
-import Alert from "@material-ui/lab/Alert";
-import { RootState } from "../../store";
-import { connect } from "react-redux";
 import FormPopupDialog from "../../components/popup/formPopup";
-import { apiUrls } from "../../api/clients/config";
+import { registration } from "../../redux/actions/auth/authActions";
+import { RootState } from "../../store";
+import { RegistrationRequest } from "../../types/auth/auth";
 
 type RegisterProps = ReturnType<typeof mapStateToProps> &
   ReturnType<typeof mapDispatchToProps> & {
@@ -102,8 +99,12 @@ const Register: React.FC<RegisterProps> = ({
   };
   const [openPopup, setOpenPopup] = useState(true);
 
+  const onClose = () =>{
+    history.push("/home");
+  };
+
   return (
-    <FormPopupDialog title="" openPopup={openPopup} setOpenPopup={setOpenPopup}>
+    <FormPopupDialog title="" openPopup={openPopup} setOpenPopup={setOpenPopup} onClose={onClose}>
       <Grid className={classes.root}>
         <Formik
           initialValues={initialValues}

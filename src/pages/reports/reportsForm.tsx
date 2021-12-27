@@ -1,30 +1,28 @@
+import { createStyles, Grid, makeStyles, Theme } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
+import { Form, Formik, FormikProps } from "formik";
 import React, { Dispatch, useEffect, useState } from "react";
-import { Grid, createStyles, makeStyles, Theme } from "@material-ui/core";
-import { Formik, FormikProps, Form } from "formik";
-import * as Yup from "yup";
 import { connect } from "react-redux";
+import * as Yup from "yup";
+import DatePickerInput from "../../components/controls/datePickerInput";
 import FormHeader from "../../components/controls/formHeader";
+import SelectInput from "../../components/controls/selectInput";
+import SubmitButton from "../../components/controls/submitButton";
+import CircularUnderLoad from "../../components/loader/circularLoader";
+import { fetchProjects } from "../../redux/actions/projectsActions";
+import { generateReport } from "../../redux/actions/reportsActions";
+import { RootState } from "../../store";
+import { PagedRequest } from "../../types/api/apiRequests";
+import {
+  ProjectDetailsModel
+} from "../../types/projects/project";
 import {
   ReportFormatType,
   ReportGenerationRequest,
-  ReportType,
+  ReportType
 } from "../../types/report/report";
-import DatePickerInput from "../../components/controls/datePickerInput";
 import { ToArray } from "../../utils/enumUtils";
-import SelectInput from "../../components/controls/selectInput";
-import SubmitButton from "../../components/controls/submitButton";
 import { getUserId } from "../../utils/jwtUtils";
-import { generateReport } from "../../redux/actions/reportsActions";
-import { Alert } from "@material-ui/lab";
-import CircularUnderLoad from "../../components/loader/circularLoader";
-import AutoCompleteInput from "../../components/controls/autoCompeteInput";
-import { PagedRequest } from "../../types/api/apiRequests";
-import {
-  ProjectDetailsModel,
-  ProjectModel,
-} from "../../types/projects/project";
-import { RootState } from "../../store";
-import { fetchProjects } from "../../redux/actions/projectsActions";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

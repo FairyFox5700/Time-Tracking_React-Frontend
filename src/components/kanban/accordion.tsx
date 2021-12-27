@@ -1,11 +1,11 @@
-import React from "react";
+import { GridList } from "@material-ui/core";
 import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
-import { GridList, List, ListItem } from "@material-ui/core";
+import React from "react";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {

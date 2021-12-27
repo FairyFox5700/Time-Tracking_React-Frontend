@@ -1,5 +1,4 @@
 import { IssueDetailedModel } from "../types/issues/isues";
-import { BoardTypes } from "../types/settings/settings";
 import { groupBy } from "../utils/groupUtils";
 
 const backlog = [

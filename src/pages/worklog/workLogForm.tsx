@@ -1,18 +1,17 @@
-import React, { Dispatch, useState } from "react";
 import { createStyles, Grid, makeStyles, Theme } from "@material-ui/core";
-import { ActivityType, WorkLogModel } from "../../types/worklogs/worklogs";
-import { Formik, FormikProps, Form } from "formik";
-import * as Yup from "yup";
+import { Alert } from "@material-ui/lab";
+import { Form, Formik, FormikProps } from "formik";
+import React, { Dispatch } from "react";
 import { connect } from "react-redux";
-import { getUserId } from "../../utils/jwtUtils";
-import TextInput from "../../components/controls/textInput";
+import * as Yup from "yup";
+import DatePickerInput from "../../components/controls/datePickerInput";
 import FormHeader from "../../components/controls/formHeader";
 import SubmitButton from "../../components/controls/submitButton";
-import { Alert } from "@material-ui/lab";
-import DatePickerInput from "../../components/controls/datePickerInput";
+import TextInput from "../../components/controls/textInput";
 import CircularUnderLoad from "../../components/loader/circularLoader";
-import { RootState } from "../../store";
 import { createWorklog } from "../../redux/actions/workLogsActions";
+import { RootState } from "../../store";
+import { ActivityType, WorkLogModel } from "../../types/worklogs/worklogs";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

@@ -1,27 +1,26 @@
-import React, { Dispatch, useEffect, useState } from "react";
-import { Grid, createStyles, makeStyles, Theme } from "@material-ui/core";
-import { Formik, FormikProps, Form } from "formik";
-import * as Yup from "yup";
-import SubmitButton from "../../components/controls/submitButton";
-import TextInput from "../../components/controls/textInput";
-import FormHeader from "../../components/controls/formHeader";
-import { State, MilestonModel } from "../../types/milestones/milestones";
-import AutoCompleteInput from "../../components/controls/autoCompeteInput";
-import DatePickerInput from "../../components/controls/datePickerInput";
-import { addMilestone } from "../../redux/actions/milestonesActions";
-import { RootState } from "../../store";
-import { connect } from "react-redux";
-import CircularUnderLoad from "../../components/loader/circularLoader";
+import { createStyles, Grid, makeStyles, Theme } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
-import { PagedRequest } from "../../types/api/apiRequests";
+import { Form, Formik, FormikProps } from "formik";
+import React, { Dispatch, useEffect } from "react";
+import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
+import * as Yup from "yup";
+import DatePickerInput from "../../components/controls/datePickerInput";
+import FormHeader from "../../components/controls/formHeader";
+import SelectInput from "../../components/controls/selectInput";
+import SubmitButton from "../../components/controls/submitButton";
+import TextInputMultiline from "../../components/controls/textFieldMultiline";
+import TextInput from "../../components/controls/textInput";
+import CircularUnderLoad from "../../components/loader/circularLoader";
+import { addMilestone } from "../../redux/actions/milestonesActions";
 import { fetchProjects } from "../../redux/actions/projectsActions";
+import { RootState } from "../../store";
+import { PagedRequest } from "../../types/api/apiRequests";
+import { MilestonModel, State } from "../../types/milestones/milestones";
 import {
   ProjectDetailsModel,
-  ProjectModel,
+  ProjectModel
 } from "../../types/projects/project";
-import TextInputMultiline from "../../components/controls/textFieldMultiline";
-import SelectInput from "../../components/controls/selectInput";
-import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

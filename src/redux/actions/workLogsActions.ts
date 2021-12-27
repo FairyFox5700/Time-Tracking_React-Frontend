@@ -1,13 +1,12 @@
 import { AxiosResponse } from "axios";
+import { Dispatch } from "react";
 import client from "../../api/clients/client";
-import { ThunkResult } from "./issuesActions";
 import { PagedRequest } from "../../types/api/apiRequests";
 import {
   ApiEmptyResponse,
   ApiPagedResponse,
-  ApiResponse,
+  ApiResponse
 } from "../../types/api/apiResponses";
-import { Dispatch } from "react";
 import {
   CrateWorklogFailedActionType,
   CrateWorklogSuccessActionType,
@@ -25,7 +24,7 @@ import {
   UpdateWorklogFailedActionType,
   UpdateWorklogStatusFailedActionType,
   UpdateWorklogStatusSuccessActionType,
-  UpdateWorklogSuccessActionType,
+  UpdateWorklogSuccessActionType
 } from "../../types/worklogs/worklogActions";
 import {
   ActivitiesRequest,
@@ -33,8 +32,9 @@ import {
   UpdateWorkLogStatusRequest,
   UserActivityWorklogs,
   WorkLogDetails,
-  WorkLogModel,
+  WorkLogModel
 } from "../../types/worklogs/worklogs";
+import { ThunkResult } from "./issuesActions";
 
 //fetch all worklogs
 export const fetchAllWorkLogs = (

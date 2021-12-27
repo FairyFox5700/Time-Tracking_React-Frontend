@@ -1,5 +1,5 @@
 import { Reducer } from "redux";
-import { ApiResponse, ApiPagedResponse } from "../../types/api/apiResponses";
+import { ApiPagedResponse, ApiResponse } from "../../types/api/apiResponses";
 import { UserModel } from "../../types/roles/roles";
 import { UserDetailsModel } from "../../types/users/users";
 import { getErrorMessage } from "../../utils/actionErrorsUtils";

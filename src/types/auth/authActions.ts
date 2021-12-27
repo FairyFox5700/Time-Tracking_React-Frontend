@@ -1,17 +1,13 @@
+import { API_ACTIONS } from "../../redux/actions/apiActions";
 import {
-  REGISTER,
-  REFRESH_TOKEN,
-  RESEND_VERIFICATION_EMAIL,
-  RESET_PASSWORD,
-  REVOKE_TOKEN,
-  FORGOT_PASSWORD,
   CONFIRM_EMAIL,
-  CREATE_TOKEN,
+  CREATE_TOKEN, FORGOT_PASSWORD, REFRESH_TOKEN, REGISTER, RESEND_VERIFICATION_EMAIL,
+  RESET_PASSWORD,
+  REVOKE_TOKEN
 } from "../../redux/constants/auth";
-
 import { AuthResponse } from "./auth";
 
-import { API_ACTIONS } from "../../redux/actions/apiActions";
+
 
 export interface LoginRequestSuccessActionType {
   type: `${API_ACTIONS.FETCH_SUCCESS}${typeof CREATE_TOKEN}`;

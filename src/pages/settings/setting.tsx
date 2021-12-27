@@ -1,7 +1,6 @@
 import {
-  Grid,
-  makeStyles,
-  Container,
+  Container, Grid,
+  makeStyles
 } from "@material-ui/core";
 import SettingsForm from './settingsForm';
 function Settings()  {

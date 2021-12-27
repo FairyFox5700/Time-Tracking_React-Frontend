@@ -1,5 +1,4 @@
 import axios from "axios";
-import logout from "../../pages/auth/logout";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -24,10 +23,15 @@ export default {
   },
 };
 
-
 export const apiUrls = {
+  timeTrackingApi: "http://46.101.76.198:6500/api/issue-tracking",
+  identityUrl: "http://46.101.76.198:6500/api/identity",
+  reportGenerationApi: "http://46.101.76.198:6500/api/reporting"
+};
+
+export const apiUrlsLocal = {
   timeTrackingApi: "http://localhost:6500/api/issue-tracking",
-  identityUrl: "http://localhost:6500/api/identity",
+  identityUrl: "http://localhost:43396/api",
   reportGenerationApi: "http://localhost:6500/api/reporting"
 };
 

@@ -1,20 +1,15 @@
+import {
+    createStyles, Grid, makeStyles, Paper, Theme, Typography
+} from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import { Form, Formik, FormikProps } from "formik";
 import React from "react";
-import {
-    Typography,
-    createStyles,
-    makeStyles,
-    Theme,
-    Grid,
-} from "@material-ui/core";
 import { useHistory } from "react-router";
-import { BoardTypes, ProjectSettingRequest } from "../../types/settings/settings";
+import AutoCompleteInput from "../../components/controls/autoCompeteInput";
 import FormHeader from "../../components/controls/formHeader";
 import SubmitButton from "../../components/controls/submitButton";
-import { resetBoardTypeToSettings} from "../../utils/jwtUtils";
-import { ToArray } from "../../utils/enumUtils";
-import AutoCompleteInput from "../../components/controls/autoCompeteInput";
+import { BoardTypes, ProjectSettingRequest } from "../../types/settings/settings";
+import { resetBoardTypeToSettings } from "../../utils/jwtUtils";
 
 type SettingsFormProps =
     {
@@ -38,6 +33,12 @@ const useStyles = makeStyles((theme: Theme) =>
                 color: "#74c69d",
             },
         },
+        paper: {
+            padding: theme.spacing(2),
+            textAlign: 'center',
+            color: theme.palette.text.secondary,
+            width:"70%"
+        },
         textBottom: {
             textAlign: "center",
             margin: "8px",
@@ -57,12 +58,11 @@ const SettingsForm: React.FC<SettingsFormProps> = ({
 }) => {
     const classes = useStyles();
     const setSettings = (val:string|null)=>{
-        console.log("settingsc:"+val??"");
+
         initialValues.boardType = val??"";
     };
     const history = useHistory();
     const onSubmit = (values: ProjectSettingRequest, actions: any) => {
-        console.log("settings:"+values.boardType);
         resetBoardTypeToSettings(values.boardType.toString());
         actions.resetForm();
         actions.setSubmitting(false);
@@ -87,6 +87,7 @@ const SettingsForm: React.FC<SettingsFormProps> = ({
                                         </Typography>
                                     </Grid>
                                     <Grid item  lg={9} md={9} sm={9} xs={9}>
+                                        <Paper className={classes.paper}>
                                         <AutoCompleteInput
                                             name="boardType"
                                             label="Select board type"
@@ -97,6 +98,7 @@ const SettingsForm: React.FC<SettingsFormProps> = ({
                                             options={BoardTypes}
                                             error={false}>
                                         </AutoCompleteInput>
+                                        </Paper>
                                     </Grid>
                                     <Grid item lg={4} md={4} sm={4} xs={4}>
                                         <SubmitButton

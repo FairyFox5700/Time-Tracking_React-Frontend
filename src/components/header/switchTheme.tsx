@@ -1,22 +1,29 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
-import { shade } from 'polished';
+import { makeStyles, Theme, useTheme } from '@material-ui/core';
+import React from 'react';
 import Switch from 'react-switch';
 import ThemeProps from '../../types/ThemProps';
 
-const SwitchTheme : React.FC<ThemeProps> = ({ toggleTheme }) =>  {
-     const { colors, title } = useContext(ThemeContext);
+
+const SwitchTheme : React.FC<ThemeProps> = ({ toggleTheme,mode }) =>  {
+  const useStyles = makeStyles((theme:Theme) => ({
+    root: {
+      color: theme.palette.secondary.main,
+    },
+  }));
+  
+  const theme = useTheme();
+  const classes = useStyles();
     return (
         <Switch
         onChange={toggleTheme}
-        checked={title === 'dark'}
+        checked={mode==="dark"}
         checkedIcon={false}
         uncheckedIcon={false}
         height={10}
         width={40}
         handleDiameter={20}
-        offColor={shade(0.15, colors.primary)}
-        onColor={colors.secondary}
+        color="secondary"
+        onColor={theme.palette.secondary.light}
       />
     )
 }

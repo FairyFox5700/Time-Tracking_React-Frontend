@@ -1,31 +1,24 @@
-import MUIDataTable, { SelectableRows } from "mui-datatables";
-import React, { Dispatch, useEffect, useState } from "react";
-import { Alert } from "@material-ui/lab";
-import { connect } from "react-redux";
-import { RootState } from "../../store";
-import { PagedRequest } from "../../types/api/apiRequests";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
 import {
-  Checkbox,
   CircularProgress,
   createMuiTheme,
-  MuiThemeProvider,
-  Switch,
-  Typography,
+  MuiThemeProvider, Typography
 } from "@material-ui/core";
-import { fetchAllUsers } from "../../redux/actions/userAccountsActions";
+import { Alert } from "@material-ui/lab";
+import MUIDataTable, { SelectableRows } from "mui-datatables";
+import React, { Dispatch, useEffect, useState } from "react";
+import { connect } from "react-redux";
 import {
-  UpdateWorkLogStatusRequest,
-  WorkLogDetails,
-  WorkLogModel,
-} from "../../types/worklogs/worklogs";
-import {
-  fetchAllWorkLogs,
-  updateStatusWorklog,
+  fetchAllWorkLogs
 } from "../../redux/actions/workLogsActions";
+import { RootState } from "../../store";
+import { PagedRequest } from "../../types/api/apiRequests";
 import { ApiPagedResponse, ApiResponse } from "../../types/api/apiResponses";
-import AproveWorklogPopper from "./approveWorklogPopper";
+import {
+  WorkLogDetails,
+  WorkLogModel
+} from "../../types/worklogs/worklogs";
 import { toLocalTime } from "../../utils/timeUtils";
+import AproveWorklogPopper from "./approveWorklogPopper";
 type WorkLogDataGridProps = ReturnType<typeof mapStateToProps> &
   ReturnType<typeof mapDispatchToProps> & {
     fetchWorkLogs?: (request: PagedRequest) => void;

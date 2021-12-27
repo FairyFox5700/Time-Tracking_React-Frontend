@@ -1,6 +1,6 @@
+import AssessmentIcon from "@material-ui/icons/Assessment";
 import React from "react";
 import { NavLink } from "react-router-dom";
-import AssessmentIcon from "@material-ui/icons/Assessment";
 
 const ReportGeneration = () => {
   return (

@@ -1,6 +1,8 @@
 import { Reducer } from "redux";
-import { ApiResponse, ApiPagedResponse } from "../../types/api/apiResponses";
+import { ApiPagedResponse, ApiResponse } from "../../types/api/apiResponses";
 import { WorkLogDetails, WorkLogModel } from "../../types/worklogs/worklogs";
+import { getErrorMessage } from "../../utils/actionErrorsUtils";
+import { API_ACTIONS } from "../actions/apiActions";
 import {
   CREATE_WORKLOG,
   DELETE_WORKLOG,
@@ -8,10 +10,8 @@ import {
   GET_ALL_ACTIVITIES_FOR_USER,
   GET_ALL_WORKLOGS_PAGED,
   UPDATE_WORKLOG,
-  UPDATE_WORKLOG_STATUS,
+  UPDATE_WORKLOG_STATUS
 } from "../constants/worklogs";
-import { API_ACTIONS } from "../actions/apiActions";
-import { getErrorMessage } from "../../utils/actionErrorsUtils";
 
 export interface WorklogReducerType {
   workLogs: ApiPagedResponse<WorkLogDetails>;

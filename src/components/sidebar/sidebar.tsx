@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import Divider from "@material-ui/core/Divider";
-import { Link } from "react-router-dom";
-import CloseIcon from "@material-ui/icons/Close";
-import { getSideBarData } from "../../data/sideBarData";
-import "./styles.css";
-import { PropSidebar } from "../../types/PropSidebar";
 import { Button } from "@material-ui/core";
+import Divider from "@material-ui/core/Divider";
+import CloseIcon from "@material-ui/icons/Close";
+import React from "react";
+import { Link } from "react-router-dom";
+import { getSideBarData } from "../../data/sideBarData";
+import { PropSidebar } from "../../types/PropSidebar";
+import "./styles.css";
 
 const Sidebar: React.FC<PropSidebar> = ({
   sideBarOpen,

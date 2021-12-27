@@ -1,13 +1,11 @@
-import {
-  CREATE_TEAM,
-  GET_ALL_TEAMS_ASYNC,
-  FETCH_TEAM_BY_ID,
-} from "../../redux/constants/teams";
-
-import { TeamDetailsModel } from "./teams";
 import { API_ACTIONS } from "../../redux/actions/apiActions";
+import {
+  CREATE_TEAM, FETCH_TEAM_BY_ID, GET_ALL_TEAMS_ASYNC
+} from "../../redux/constants/teams";
 import { ApiPagedResponse, ApiResponse } from "../api/apiResponses";
 import { ProjectDetailsModel } from "../projects/project";
+import { TeamDetailsModel } from "./teams";
+
 
 export interface FetchAllTeamsRequestActionType {
   type: `${API_ACTIONS.FETCH_START}${typeof GET_ALL_TEAMS_ASYNC}`;

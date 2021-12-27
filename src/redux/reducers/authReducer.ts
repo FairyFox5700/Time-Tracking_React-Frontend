@@ -1,18 +1,14 @@
 import { Reducer } from "redux";
 import {
-  REGISTER,
-  REFRESH_TOKEN,
-  RESEND_VERIFICATION_EMAIL,
-  RESET_PASSWORD,
-  REVOKE_TOKEN,
-  FORGOT_PASSWORD,
   CONFIRM_EMAIL,
-  CREATE_TOKEN,
+  CREATE_TOKEN, FORGOT_PASSWORD, REFRESH_TOKEN, REGISTER, RESEND_VERIFICATION_EMAIL,
+  RESET_PASSWORD,
+  REVOKE_TOKEN
 } from "../../redux/constants/auth";
+import { getErrorMessage } from "../../utils/actionErrorsUtils";
+import { SetAccessToken, SetRefreshToken } from "../../utils/jwtUtils";
 import { API_ACTIONS } from "../actions/apiActions";
 
-import { SetAccessToken, SetRefreshToken } from "../../utils/jwtUtils";
-import { getErrorMessage } from "../../utils/actionErrorsUtils";
 
 export interface AuthReducerType {
   isLogedIn: boolean | undefined;

@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useDrop } from "react-dnd";
-import { IssueDetailedModel } from "../../types/issues/isues";
 import { ITEM_TYPE } from "../../data/constants";
+import { IssueDetailedModel } from "../../types/issues/isues";
 
 export interface KanbanProps {
   status: string;

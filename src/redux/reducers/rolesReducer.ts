@@ -1,10 +1,7 @@
 import { Reducer } from "redux";
 import {
-  ApiResponse,
-  ApiPagedResponse,
-  ApiEmptyResponse,
+  ApiEmptyResponse
 } from "../../types/api/apiResponses";
-import { TeamDetailsModel, TeamModel } from "../../types/teams/teams";
 import { getErrorMessage } from "../../utils/actionErrorsUtils";
 import { API_ACTIONS } from "../actions/apiActions";
 import { ADD_TO_ROLE } from "../constants/role";

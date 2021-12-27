@@ -1,16 +1,16 @@
 import { Reducer } from "redux";
-import { API_ACTIONS } from "../actions/apiActions";
-import { ApiResponse, ApiPagedResponse } from "../../types/api/apiResponses";
+import { ApiPagedResponse, ApiResponse } from "../../types/api/apiResponses";
 import {
   ProjectDetailsModel,
-  ProjectModel,
+  ProjectModel
 } from "../../types/projects/project";
+import { getErrorMessage } from "../../utils/actionErrorsUtils";
+import { API_ACTIONS } from "../actions/apiActions";
 import {
   CREATE_PROJECT,
   FETCH_PROJECT_BY_ID,
-  GET_ALL_PROJETCS_ASYNC,
+  GET_ALL_PROJETCS_ASYNC
 } from "../constants/project";
-import { getErrorMessage } from "../../utils/actionErrorsUtils";
 
 export interface ProjectReducerType {
   projects: ApiPagedResponse<ProjectDetailsModel>;

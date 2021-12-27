@@ -1,7 +1,7 @@
 import { API_ACTIONS } from "../../redux/actions/apiActions";
 import {
   GET_ALL_USER_ACCOUNTS,
-  GET_USER_ACCOUNT_BY_ID,
+  GET_USER_ACCOUNT_BY_ID
 } from "../../redux/constants/authUsers";
 import { ApiResponse } from "../api/apiResponses";
 import { UserAccountModel } from "./userAccount";

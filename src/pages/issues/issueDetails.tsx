@@ -1,10 +1,3 @@
-import React, { Dispatch, useEffect, useState } from "react";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import "./issueCard.css";
-import Avatar from "@material-ui/core/Avatar";
-import { IssueDetailedModel, Status } from "../../types/issues/isues";
 import {
   Box,
   Grid,
@@ -12,24 +5,31 @@ import {
   List,
   ListItem,
   ListItemAvatar,
-  ListItemText,
+  ListItemText
 } from "@material-ui/core";
-import { Theme, createStyles, makeStyles } from "@material-ui/core/styles";
+import Avatar from "@material-ui/core/Avatar";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import AlarmAddIcon from "@material-ui/icons/AlarmAdd";
+import EditIcon from "@material-ui/icons/Edit";
+import TimerOffIcon from "@material-ui/icons/TimerOff";
+import { Alert } from "@material-ui/lab";
+import React, { Dispatch, useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { useHistory, useLocation } from "react-router-dom";
 import AvatarItem from "../../components/kanban/avatar";
-import { PagedRequest } from "../../types/api/apiRequests";
-import { RootState } from "../../store";
+import CircularUnderLoad from "../../components/loader/circularLoader";
+import PopupDialog from "../../components/popup/popupDialog";
 import { fetchIssuesById } from "../../redux/actions/issuesActions";
 import { fetchAllUsers } from "../../redux/actions/usersActions";
-import { connect } from "react-redux";
-import { useLocation, useHistory } from "react-router-dom";
-import { Alert } from "@material-ui/lab";
-import CircularUnderLoad from "../../components/loader/circularLoader";
-import AlarmAddIcon from "@material-ui/icons/AlarmAdd";
-import TimerOffIcon from "@material-ui/icons/TimerOff";
-import EditIcon from "@material-ui/icons/Edit";
-import WorkLogGrid from "../worklog/workLogGrid";
+import { RootState } from "../../store";
+import { PagedRequest } from "../../types/api/apiRequests";
+import { IssueDetailedModel, Status } from "../../types/issues/isues";
 import { toLocalTime } from "../../utils/timeUtils";
-import PopupDialog from "../../components/popup/popupDialog";
+import WorkLogGrid from "../worklog/workLogGrid";
+import "./issueCard.css";
 type IssueDetailsProps = ReturnType<typeof mapStateToProps> &
   ReturnType<typeof mapDispatchToProps> & {
     handleChange: any;
@@ -69,6 +69,7 @@ const useStyles = makeStyles((theme: Theme) =>
     boxSize: {
       minWidth: "500px",
       minHeight: "200px",
+      backgroundColor:theme.palette.background.default,
     },
     boxText: {
       fontSize: "16px",
@@ -171,7 +172,7 @@ const IssueDetailedCard: React.FC<IssueDetailsProps> = ({
                 <Grid item xs={12}>
                   <Box
                     textAlign="justify"
-                    className={classNameForBg + " " + classes.boxSize}
+                    className={ classes.boxSize}
                     m={1}
                   >
                     <Typography

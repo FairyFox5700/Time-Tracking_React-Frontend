@@ -1,13 +1,7 @@
-import React from "react";
 import {
-  FormControl,
-  InputLabel,
-  Select as MuiSelect,
-  MenuItem,
-  FormHelperText,
-  makeStyles,
+  FormControl, FormHelperText, InputLabel, makeStyles, MenuItem, Select as MuiSelect
 } from "@material-ui/core";
-import Item from "../kanban/item";
+import React from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {

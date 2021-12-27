@@ -1,16 +1,16 @@
-import React, { Dispatch, useState } from "react";
 import { createStyles, Grid, makeStyles, Theme } from "@material-ui/core";
-import { Formik, FormikProps, Form } from "formik";
+import { Form, Formik, FormikProps } from "formik";
+import React, { Dispatch } from "react";
+import { connect } from "react-redux";
 import * as Yup from "yup";
-import TextInput from "../../components/controls/textInput";
 import SubmitButton from "../../components/controls/submitButton";
+import TextInput from "../../components/controls/textInput";
+import { updateStatusWorklog } from "../../redux/actions/workLogsActions";
 import {
   ActivityType,
   UpdateWorkLogStatusRequest,
-  WorkLogModel,
+  WorkLogModel
 } from "../../types/worklogs/worklogs";
-import { updateStatusWorklog } from "../../redux/actions/workLogsActions";
-import { connect } from "react-redux";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

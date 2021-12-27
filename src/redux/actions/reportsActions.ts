@@ -1,12 +1,11 @@
-import {
-  ReportGenerationSuccessActionType,
-  ReportGenerationFailedActionType,
-} from "../../types/report/reportActions";
-import { ReportGenerationRequest } from "../../types/report/report";
-import { ThunkResult } from "./issuesActions";
 import { AxiosResponse } from "axios";
-import client from "../../api/clients/reportClient";
 import { Dispatch } from "react";
+import client from "../../api/clients/reportClient";
+import { ReportGenerationRequest } from "../../types/report/report";
+import {
+  ReportGenerationFailedActionType, ReportGenerationSuccessActionType
+} from "../../types/report/reportActions";
+import { ThunkResult } from "./issuesActions";
 
 //generate report
 export const generateReport = (

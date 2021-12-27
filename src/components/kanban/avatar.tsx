@@ -1,6 +1,6 @@
-import React from "react";
 import { createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
+import React from "react";
 
 export interface AvatarProps {
   name: string;
@@ -28,12 +28,13 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "inline",
       fontSize: "16px",
       fontWeight: "normal",
+      whiteSpace:"pre",
     },
   })
 );
 
 const AvatarItem: React.FC<AvatarProps> = ({ name, surname, label }) => {
-  const fullName = name + " " + surname;
+  const fullName = name + " \n" + surname;
   const iconName = name[0] + " " + surname[0];
   const classes = useStyles();
   return (

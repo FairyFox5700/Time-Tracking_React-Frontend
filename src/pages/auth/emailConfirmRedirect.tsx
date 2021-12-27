@@ -1,26 +1,22 @@
-import React, { Dispatch, useEffect, useState } from "react";
-import { Link, Redirect, useLocation } from "react-router-dom";
 import {
-  Grid,
-  Typography,
-  createStyles,
-  Theme,
-  makeStyles,
+  createStyles, Grid, makeStyles, Theme, Typography
 } from "@material-ui/core";
-import { Formik, FormikProps, Form } from "formik";
+import Divider from "@material-ui/core/Divider";
+import Alert from "@material-ui/lab/Alert";
+import { Form, Formik, FormikProps } from "formik";
+import React, { Dispatch, useEffect } from "react";
+import { connect } from "react-redux";
+import { Link, Redirect, useLocation } from "react-router-dom";
+import { apiUrls } from "../../api/clients/config";
+import FormHeader from "../../components/controls/formHeader";
+import SubmitButton from "../../components/controls/submitButton";
+import { confirmEmail } from "../../redux/actions/auth/authActions";
+import { RootState } from "../../store";
 import {
   EmailConfirmationRequest,
-  ResendEmailConfirmationRequest,
+  ResendEmailConfirmationRequest
 } from "../../types/auth/auth";
-import SubmitButton from "../../components/controls/submitButton";
 
-import FormHeader from "../../components/controls/formHeader";
-import { confirmEmail } from "../../redux/actions/auth/authActions";
-import Alert from "@material-ui/lab/Alert";
-import { RootState } from "../../store";
-import { connect } from "react-redux";
-import Divider from "@material-ui/core/Divider";
-import { apiUrls } from "../../api/clients/config";
 
 type ResendEmailConfirmationProps = ReturnType<typeof mapStateToProps> &
   ReturnType<typeof mapDispatchToProps> & {

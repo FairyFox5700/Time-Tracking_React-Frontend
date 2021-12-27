@@ -1,20 +1,20 @@
+import { createStyles, Grid, makeStyles, Theme } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
+import { Form, Formik, FormikProps } from "formik";
 import React, { Dispatch, useEffect } from "react";
-import { Grid, createStyles, makeStyles, Theme } from "@material-ui/core";
-import { Formik, FormikProps, Form } from "formik";
-import * as Yup from "yup";
 import { connect } from "react-redux";
-import FormHeader from "../../components/controls/formHeader";
+import * as Yup from "yup";
 import DatePickerInput from "../../components/controls/datePickerInput";
+import FormHeader from "../../components/controls/formHeader";
 import SelectInput from "../../components/controls/selectInput";
 import SubmitButton from "../../components/controls/submitButton";
-import { Alert } from "@material-ui/lab";
 import CircularUnderLoad from "../../components/loader/circularLoader";
-import { PagedRequest } from "../../types/api/apiRequests";
-import { RootState } from "../../store";
-import { MilestoneDetailsModel } from "../../types/milestones/milestones";
-import { IssueFilteringRequest } from "../../types/issues/isues";
-import { fetchMilestones } from "../../redux/actions/milestonesActions";
 import { fetchIssuesFiltered } from "../../redux/actions/issuesActions";
+import { fetchMilestones } from "../../redux/actions/milestonesActions";
+import { RootState } from "../../store";
+import { PagedRequest } from "../../types/api/apiRequests";
+import { IssueFilteringRequest } from "../../types/issues/isues";
+import { MilestoneDetailsModel } from "../../types/milestones/milestones";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

@@ -1,7 +1,7 @@
 import axios from "axios";
-import { RemoveAccessToken, RemoveRefreshToken } from "../../utils/jwtUtils";
 import { Redirect } from "react-router-dom";
-import {apiUrls} from "./config"
+import { RemoveAccessToken, RemoveRefreshToken } from "../../utils/jwtUtils";
+import { apiUrls } from "./config";
 
 
 //"http://localhost:57732/api" "http://timetrackinglilo.australiasoutheast.cloudapp.azure.com:50052/api"

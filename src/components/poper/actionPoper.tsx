@@ -1,14 +1,13 @@
-import React from "react";
-import Popover from "@material-ui/core/Popover";
+import { Fade, Popper } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
-import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem, { ListItemProps } from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import PopupState, { bindPopper, bindToggle } from 'material-ui-popup-state';
+import React from "react";
 import {
-  isUserEngineer,
-  isUserTeamLead,
-  isUserProjectManager,
+  isUserEngineer, isUserProjectManager, isUserTeamLead
 } from "../../utils/jwtUtils";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -19,53 +18,30 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       width: "100%",
       maxWidth: 360,
-      backgroundColor: theme.palette.background.paper,
+      backgroundColor: theme.palette.primary.main,
     },
   })
 );
 
 const ActionsPopper = () => {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] =
-    React.useState<HTMLButtonElement | null>(null);
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
   const ListItemLink = (props: ListItemProps<"a", { button?: true }>) => {
     return <ListItem button component="a" {...props} />;
   };
   return (
-    <div>
+    <PopupState variant="popper" popupId="demo-popup-popper">
+      {(popupState) => (
+        <div>
       <Button
-        aria-describedby={id}
         variant="contained"
         color="secondary"
-        onClick={handleClick}
+        {...bindToggle(popupState)}
       >
         Add item
       </Button>
-      <Popover
-        id={id}
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "center",
-        }}
-      >
+      <Popper {...bindPopper(popupState)} transition>
+            {({ TransitionProps }) => (
+              <Fade {...TransitionProps} timeout={350}>
         <div className={classes.root}>
           <List component="nav" aria-label="secondary mailbox folders">
             {(isUserEngineer() ||
@@ -92,8 +68,12 @@ const ActionsPopper = () => {
             )}
           </List>
         </div>
-      </Popover>
-    </div>
+        </Fade>
+            )}
+          </Popper>
+        </div>
+      )}
+    </PopupState>
   );
 };
 export default ActionsPopper;

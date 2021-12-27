@@ -2,12 +2,12 @@ import { API_ACTIONS } from "../../redux/actions/apiActions";
 import {
   ADD_USER_TO_TEAM,
   GET_ALL_USERS_ASYNC,
-  GET_USER_BY_ID,
+  GET_USER_BY_ID
 } from "../../redux/constants/users";
 import {
   ApiEmptyResponse,
   ApiPagedResponse,
-  ApiResponse,
+  ApiResponse
 } from "../api/apiResponses";
 import { UserDetailsModel } from "./users";
 

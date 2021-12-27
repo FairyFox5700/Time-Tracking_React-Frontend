@@ -1,7 +1,7 @@
 import React from "react";
-import { Button, makeStyles } from "@material-ui/core";
+import { Button, makeStyles, Theme } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme:Theme) => ({
   root: {
     minWidth: 0,
     margin: theme.spacing(0.5),

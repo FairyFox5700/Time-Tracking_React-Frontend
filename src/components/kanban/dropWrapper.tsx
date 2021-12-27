@@ -1,7 +1,7 @@
 import React from "react";
 import { useDrop } from "react-dnd";
-import { ITEM_TYPE } from "../../data/constants";
 import { BoardStatuses, statuses } from "../../data/boardData";
+import { ITEM_TYPE } from "../../data/constants";
 export interface DropWrapperItems {
   onDrop: any;
   children: any;

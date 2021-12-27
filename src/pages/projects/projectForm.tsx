@@ -1,18 +1,18 @@
-import React, { Dispatch, useEffect } from "react";
-import { Grid, makeStyles, Theme, createStyles } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
-import { Formik, FormikProps, Form } from "formik";
-import * as Yup from "yup";
-import { ProjectModel } from "../../types/projects/project";
-import { RootState } from "../../store";
-import SubmitButton from "../../components/controls/submitButton";
+import { createStyles, Grid, makeStyles, Theme } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
-import { addProject } from "../../redux/actions/projectsActions";
+import { Form, Formik, FormikProps } from "formik";
+import React, { Dispatch } from "react";
 import { connect } from "react-redux";
-import TextInput from "../../components/controls/textInput";
+import { useHistory } from "react-router-dom";
+import * as Yup from "yup";
 import DatePickerInput from "../../components/controls/datePickerInput";
-import CircularUnderLoad from "../../components/loader/circularLoader";
 import FormHeader from "../../components/controls/formHeader";
+import SubmitButton from "../../components/controls/submitButton";
+import TextInput from "../../components/controls/textInput";
+import CircularUnderLoad from "../../components/loader/circularLoader";
+import { addProject } from "../../redux/actions/projectsActions";
+import { RootState } from "../../store";
+import { ProjectModel } from "../../types/projects/project";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

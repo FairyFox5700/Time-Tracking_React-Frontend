@@ -1,16 +1,14 @@
+import { API_ACTIONS } from "../../redux/actions/apiActions";
 import {
-  CHANGE_ISSUE_STATUS,
+  ASSIGN_ISSUE_TO_USER_BY_ID, CHANGE_ISSUE_STATUS,
   CREATE_ISSUE,
   FETCH_ISSUE_BY_ID,
-  GET_ALL_ISSUES_ASYNC,
-  ASSIGN_ISSUE_TO_USER_BY_ID,
-  GET_ALL_ISSUES_FILTERED_ASYNC,
+  GET_ALL_ISSUES_ASYNC, GET_ALL_ISSUES_FILTERED_ASYNC
 } from "../../redux/constants/issues";
-
+import { ApiPagedResponse, ApiResponse } from "../api/apiResponses";
 import { IssueDetailedModel, IssueModel } from "./isues";
 
-import { ApiPagedResponse, ApiResponse } from "../api/apiResponses";
-import { API_ACTIONS } from "../../redux/actions/apiActions";
+
 
 export interface FetchAllIssuesRequestActionType {
   type: `${API_ACTIONS.FETCH_START}${typeof GET_ALL_ISSUES_ASYNC}`;

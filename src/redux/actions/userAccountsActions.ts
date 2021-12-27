@@ -1,19 +1,17 @@
 import { AxiosResponse } from "axios";
 import { Dispatch } from "react";
-import {
-  FetchAllUserAccountsRequestActionType,
-  FetchAllUserAccountsFailedActionType,
-  FetchAllUserAccountsSuccessActionType,
-  FetchUserAccountByIdFailedActionType,
-  FetchUserAccountByIdRequestActionType,
-  FetchUserAccountByIdSuccessActionType,
-} from "../../types/auth/userAccountAction";
 import client from "../../api/clients/authClinet";
 import { ApiResponse } from "../../types/api/apiResponses";
-
+import {
+  FetchAllUserAccountsFailedActionType, FetchAllUserAccountsRequestActionType, FetchAllUserAccountsSuccessActionType,
+  FetchUserAccountByIdFailedActionType,
+  FetchUserAccountByIdRequestActionType,
+  FetchUserAccountByIdSuccessActionType
+} from "../../types/auth/userAccountAction";
 import { UserModel } from "../../types/roles/roles";
-
 import { ThunkResult } from "./issuesActions";
+
+
 
 //fetch all users
 export const fetchAllUsers = (): ThunkResult<void> => async (dispatch) => {

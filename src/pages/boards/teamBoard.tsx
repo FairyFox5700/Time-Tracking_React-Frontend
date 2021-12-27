@@ -50,7 +50,7 @@ const TeamBoard: React.FC<TeamBoardProps> = ({
         return <CircularUnderLoad />;
     } else {
         let boardStatuses = statuses(issues.data);
-        let teamBoardStatusesArray = teamBoardStatuses(boardStatuses)s;
+        let teamBoardStatusesArray = teamBoardStatuses(boardStatuses);
 
         const chnagesIssueStatus = (issueId: string, status: string) => {
             let request: ChangeIssueStatusRequest = {

@@ -1,19 +1,16 @@
-import {
-  CREATE_MILESTONE,
-  GET_ALL_MILESTONES_ASYNC,
-  FETCH_MILESTONE_BY_ID,
-} from "../../redux/constants/milestines";
-
-import { MilestonModel, MilestoneDetailsModel } from "./milestones";
-
 import { API_ACTIONS } from "../../redux/actions/apiActions";
+import {
+  CREATE_MILESTONE, FETCH_MILESTONE_BY_ID, GET_ALL_MILESTONES_ASYNC
+} from "../../redux/constants/milestines";
 import { ApiPagedResponse, ApiResponse } from "../api/apiResponses";
 import {
   FetchIssueByIdFailureActionType,
   FetchIssueByIdRequestActionType,
-  FetchIssueByIdSucessActionType,
+  FetchIssueByIdSucessActionType
 } from "../issues/issesActions";
-import { IssueDetailedModel } from "../issues/isues";
+import { MilestoneDetailsModel } from "./milestones";
+
+
 
 export interface FetchAllMilestonesRequestActionType {
   type: `${API_ACTIONS.FETCH_START}${typeof GET_ALL_MILESTONES_ASYNC}`;

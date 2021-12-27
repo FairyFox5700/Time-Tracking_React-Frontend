@@ -1,8 +1,8 @@
 import { ArrowForward, ArrowRight } from "@material-ui/icons";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Video from "../../videos/video.mp4";
 import "./hero.css";
-import { Link } from "react-router-dom";
 const HeroSection = () => {
   const [hover, setHover] = useState(false);
   const [openPopup, setOpenPopup] = useState(false);

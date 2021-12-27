@@ -1,20 +1,16 @@
 import { Reducer } from "redux";
-import { IssueDetailedModel, Status } from "../../types/issues/isues";
 import {
-  ApiResponse,
-  ApiPagedResponse,
-  ApiEmptyDataResponse,
-} from "../../types/api/apiResponses";
-import {
-  CHANGE_ISSUE_STATUS,
+  ASSIGN_ISSUE_TO_USER_BY_ID, CHANGE_ISSUE_STATUS,
   CREATE_ISSUE,
   FETCH_ISSUE_BY_ID,
-  GET_ALL_ISSUES_ASYNC,
-  ASSIGN_ISSUE_TO_USER_BY_ID,
-  GET_ALL_ISSUES_FILTERED_ASYNC,
+  GET_ALL_ISSUES_ASYNC, GET_ALL_ISSUES_FILTERED_ASYNC
 } from "../../redux/constants/issues";
-import { API_ACTIONS } from "../actions/apiActions";
+import {
+  ApiEmptyDataResponse, ApiPagedResponse
+} from "../../types/api/apiResponses";
+import { IssueDetailedModel, Status } from "../../types/issues/isues";
 import { getErrorMessage } from "../../utils/actionErrorsUtils";
+import { API_ACTIONS } from "../actions/apiActions";
 
 export interface IssuesReducerType {
   issues: ApiPagedResponse<IssueDetailedModel>;

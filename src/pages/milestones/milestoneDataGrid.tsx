@@ -1,16 +1,16 @@
-import MUIDataTable, { SelectableRows } from "mui-datatables";
-import React, { Dispatch, useEffect, useState } from "react";
-import { Alert } from "@material-ui/lab";
-import { connect } from "react-redux";
-import { RootState } from "../../store";
-import { PagedRequest } from "../../types/api/apiRequests";
 import {
   CircularProgress,
   createMuiTheme,
   MuiThemeProvider,
-  Typography,
+  Typography
 } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
+import MUIDataTable, { SelectableRows } from "mui-datatables";
+import React, { Dispatch, useEffect, useState } from "react";
+import { connect } from "react-redux";
 import { fetchMilestones } from "../../redux/actions/milestonesActions";
+import { RootState } from "../../store";
+import { PagedRequest } from "../../types/api/apiRequests";
 import { toLocalTime } from "../../utils/timeUtils";
 
 type MilestonesDGProps = ReturnType<typeof mapStateToProps> &

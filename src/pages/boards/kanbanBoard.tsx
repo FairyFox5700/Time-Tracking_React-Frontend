@@ -1,16 +1,16 @@
-import { statuses } from "../../data/boardData";
-import "../../components/kanban/kanban.css";
+import { Alert } from "@material-ui/lab";
+import React, { Dispatch, useEffect } from "react";
+import { connect } from "react-redux";
 import SimpleAccordion from "../../components/kanban/accordion";
+import KanbanItem from "../../components/kanban/draggableItem";
+import "../../components/kanban/kanban.css";
+import KanbanColumn from "../../components/kanban/kanbanColumn";
+import CircularUnderLoad from "../../components/loader/circularLoader";
+import { statuses } from "../../data/boardData";
+import { changeIssueStatus, fetchIssues } from "../../redux/actions/issuesActions";
 import { RootState } from "../../store";
 import { PagedRequest } from "../../types/api/apiRequests";
-import { connect } from "react-redux";
-import { changeIssueStatus, fetchIssues } from "../../redux/actions/issuesActions";
-import React, { Dispatch, useEffect } from "react";
 import { ChangeIssueStatusRequest } from "../../types/issues/isues";
-import CircularUnderLoad from "../../components/loader/circularLoader";
-import KanbanItem from "../../components/kanban/draggableItem";
-import KanbanColumn from "../../components/kanban/kanbanColumn";
-import { Alert } from "@material-ui/lab";
 
 type KanbanBoardProps = ReturnType<typeof mapStateToProps> &
   ReturnType<typeof mapDispatchToProps> & {

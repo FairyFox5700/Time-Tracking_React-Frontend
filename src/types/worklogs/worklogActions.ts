@@ -1,28 +1,19 @@
-import {
-  GET_ALL_ACTIVITIES_FOR_USER,
-  DELETE_WORKLOG,
-  GET_ALL_WORKLOGS_PAGED,
-  CREATE_WORKLOG,
-  UPDATE_WORKLOG,
-  UPDATE_WORKLOG_STATUS,
-  FETCH_WORKLOG_BY_ID,
-} from "../../redux/constants/worklogs";
-
-import {
-  WorkLogDetails,
-  WorkLogModel,
-  UpdateWorkLogRequest,
-  ActivitiesRequest,
-  UserActivityWorklogs,
-} from "./worklogs";
-
-import { PagedRequest } from "../api/apiRequests";
 import { API_ACTIONS } from "../../redux/actions/apiActions";
+import {
+  CREATE_WORKLOG, DELETE_WORKLOG, FETCH_WORKLOG_BY_ID, GET_ALL_ACTIVITIES_FOR_USER, GET_ALL_WORKLOGS_PAGED, UPDATE_WORKLOG,
+  UPDATE_WORKLOG_STATUS
+} from "../../redux/constants/worklogs";
 import {
   ApiEmptyResponse,
   ApiPagedResponse,
-  ApiResponse,
+  ApiResponse
 } from "../api/apiResponses";
+import {
+  UserActivityWorklogs, WorkLogDetails,
+  WorkLogModel
+} from "./worklogs";
+
+
 
 export interface FetchAllWorklogsRequestActionType {
   type: `${API_ACTIONS.FETCH_START}${typeof GET_ALL_WORKLOGS_PAGED}`;

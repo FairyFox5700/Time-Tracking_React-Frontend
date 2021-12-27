@@ -1,24 +1,18 @@
-import {
-  FetchAllProjectsSuccessActionType,
-  FetchAllProjectsFailedActionType,
-  FetchAllProjectsRequestActionType,
-  CreateProjectSuccessActionType,
-  CreateProjectFailedActionType,
-  FetchProjectByIdRequestActionType,
-  FetchProjectByIdFailedActionType,
-  FetchProjectByIdSuccessActionType,
-} from "../../types/projects/projectActions";
+import { AxiosResponse } from "axios";
+import { Dispatch } from "react";
 import { AnyAction } from "redux";
+import client from "../../api/clients/client";
 import { PagedRequest } from "../../types/api/apiRequests";
+import { ApiPagedResponse, ApiResponse } from "../../types/api/apiResponses";
 import {
   ProjectDetailsModel,
-  ProjectModel,
+  ProjectModel
 } from "../../types/projects/project";
-import client from "../../api/clients/client";
-import { AxiosResponse } from "axios";
+import {
+  CreateProjectFailedActionType, CreateProjectSuccessActionType, FetchAllProjectsFailedActionType,
+  FetchAllProjectsRequestActionType, FetchAllProjectsSuccessActionType, FetchProjectByIdFailedActionType, FetchProjectByIdRequestActionType, FetchProjectByIdSuccessActionType
+} from "../../types/projects/projectActions";
 import { ThunkResult } from "./issuesActions";
-import { ApiPagedResponse, ApiResponse } from "../../types/api/apiResponses";
-import { Dispatch } from "react";
 
 //all projects
 export const fetchProjects = (

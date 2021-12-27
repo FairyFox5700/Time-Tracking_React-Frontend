@@ -1,19 +1,18 @@
-import React, { Dispatch, useEffect } from "react";
-import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-import { IssueDetailedModel, Status } from "../../types/issues/isues";
-import IssueGradientCard from "./issueCard";
-import {
-  ActivitiesRequest,
-  UserActivityWorklogs,
-} from "../../types/worklogs/worklogs";
-import { fetchWorklogsByUser } from "../../redux/actions/workLogsActions";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import React, { Dispatch, useEffect } from "react";
 import { connect } from "react-redux";
-import { RootState } from "../../store";
 import CircularUnderLoad from "../../components/loader/circularLoader";
-import { ApiPagedResponse, ApiResponse } from "../../types/api/apiResponses";
+import { fetchWorklogsByUser } from "../../redux/actions/workLogsActions";
+import { RootState } from "../../store";
 import { PagedRequest } from "../../types/api/apiRequests";
+import { ApiPagedResponse } from "../../types/api/apiResponses";
+import { IssueDetailedModel, Status } from "../../types/issues/isues";
+import {
+  ActivitiesRequest
+} from "../../types/worklogs/worklogs";
+import IssueGradientCard from "./issueCard";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
